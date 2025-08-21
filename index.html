@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Save The Date | 吳蔡之囍❤️</title>
+  <!-- 引入 Tailwind CSS CDN，用於快速排版與設計 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入 Google Fonts 的 Inter 字體，讓文字更美觀 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* 設定全域字體為 Inter */
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* 唱片旋轉動畫 */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* 唱片容器樣式 */
+    .disk-container {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto; /* 居中 */
+      position: relative;
+    }
+
+    /* 唱片圖片樣式 */
+    .disk {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transform-origin: center center;
+      /* 預設暫停動畫 */
+      animation-play-state: paused;
+    }
+    
+    /* 播放時才啟動動畫 */
+    .disk.is-playing {
+      animation: spin 6s linear infinite;
+      animation-play-state: running;
+    }
+    
+    /* 中間唱片孔 */
+    .disk::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 25px;
+      height: 25px;
+      background-color: white;
+      border-radius: 50%;
+      border: 3px solid #E8D2E7; /* 淺粉色邊框 */
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col items-center">
+
+  <!-- 主要容器，限制最大寬度並居中，確保在任何螢幕上都美觀 -->
+  <main class="w-full max-w-lg mx-auto">
+
+    <!-- 封面區塊 -->
+    <section class="relative w-full h-96 overflow-hidden">
+      <!-- 封面圖片 -->
+      <!-- 
+        請將這裡的圖片網址替換成你的高解析度婚紗照。
+        網址來自一個佔位符網站，請記得替換！
+      -->
+      <img src="https://placehold.co/800x600/E8D2E7/ffffff?text=Nana+%26+Johnny" 
+           alt="封面照片" class="absolute inset-0 w-full h-full object-cover">
+      
+      <!-- 遮罩層，讓文字更清晰 -->
+      <div class="absolute inset-0 bg-black opacity-30"></div>
+      
+      <!-- 封面文字內容 -->
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center">
+        <h1 class="text-4xl font-bold mb-2 drop-shadow-md">Nana & Johnny</h1>
+        <p class="text-lg mb-4 drop-shadow-md">我們結婚了！</p>
+        <div class="bg-white text-gray-800 px-6 py-2 rounded-full font-semibold shadow-lg">
+          婚禮邀請函
+        </div>
+      </div>
+    </section>
+
+    <!-- 唱片區塊與音樂播放按鈕 -->
+    <section class="bg-white p-6 rounded-2xl shadow-xl -mt-16 relative z-10 mx-4 text-center">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">我們的主題曲</h2>
+      <div class="disk-container">
+        <!-- 唱片圖片，請將這裡的網址替換成你在 Canva 設計的圖片網址 -->
+        <img id="spinningDisk" src="https://placehold.co/150x150/000000/F5A2C9?text=LOVE" alt="旋轉唱片" class="disk">
+      </div>
+      <p class="mt-4 text-gray-600">你的 - 賀先人</p>
+      <button id="musicBtn" class="mt-4 bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full shadow-lg transition duration-300">
+        ▶ 播放音樂
+      </button>
+      <!-- 隱藏的音訊播放器 -->
+      <!-- 請將 src 中的網址替換成你想使用的 MP3 歌曲網址 -->
+      <audio id="bgm" src="https://www.bensound.com/bensound-music/bensound-memories.mp3" loop></audio>
+    </section>
+
+    <!-- 倒數計時器區塊 -->
+    <section class="bg-white p-6 rounded-2xl shadow-xl mt-8 mx-4">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold text-pink-600 mb-4">倒數計時</h2>
+        <div id="countdown" class="flex justify-center items-center space-x-4 text-3xl font-bold text-gray-800">
+          <!-- 計時器會在這裡顯示 -->
+        </div>
+        <p class="mt-4 text-gray-600">
+          2025 年 12 月 20 日
+        </p>
+      </div>
+    </section>
+
+    <!-- 婚禮資訊區塊 -->
+    <section class="bg-white p-6 rounded-2xl shadow-xl mt-8 mx-4">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold text-pink-600 mb-4">婚禮資訊</h2>
+        <div class="text-gray-700 space-y-2">
+          <p>⏰ 迎賓 11:30 am | 入席 12:00 pm</p>
+          <p>📍 台中雅園新潮婚宴會館</p>
+          <a href="https://maps.app.goo.gl/your-map-link-here" target="_blank" class="inline-flex items-center text-pink-600 font-semibold underline hover:no-underline">
+            查看地圖與導航
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-6-4h4m0 0l-4-4m4 4l-4 4"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 我們的故事區塊 -->
+    <section class="bg-white p-6 rounded-2xl shadow-xl mt-8 mx-4">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold text-pink-600 mb-4">我們的故事</h2>
+        <div class="text-gray-700 text-left space-y-4">
+          <p>
+            從校園的青澀到踏入社會的成熟，我們相識、相愛，一起走過了無數個春夏秋冬。
+            這段旅程充滿了歡笑與淚水，每一個瞬間都讓我們更確信彼此就是對方的唯一。
+          </p>
+          <p>
+            我們邀請你來見證這份愛的延續，加入我們人生的新篇章。
+            你的到來，將會是我們最珍貴的祝福！
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 照片牆區塊 -->
+    <section class="bg-white p-6 rounded-2xl shadow-xl mt-8 mx-4">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold text-pink-600 mb-6">我們的回憶</h2>
+        <!-- 圖片網址來自佔位符，請務必替換成你的婚紗照或生活照！ -->
+        <div class="grid grid-cols-2 gap-4">
+          <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片1" alt="照片1" class="w-full h-auto rounded-xl shadow-md">
+          <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片2" alt="照片2" class="w-full h-auto rounded-xl shadow-md">
+          <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片3" alt="照片3" class="w-full h-auto rounded-xl shadow-md">
+          <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片4" alt="照片4" class="w-full h-auto rounded-xl shadow-md">
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP 與祝福區塊 -->
+    <section class="bg-white p-6 rounded-2xl shadow-xl mt-8 mb-12 mx-4">
+      <div class="text-center space-y-4">
+        <h2 class="text-2xl font-bold text-pink-600 mb-4">RSVP 回函</h2>
+        <p class="text-gray-700">
+          為了準備更完善的婚宴，懇請您於指定日期前回覆出席狀況。
+        </p>
+        <!-- 請將這裡的網址替換成你的 Google 表單連結 -->
+        <a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300">
+          點此前往填寫
+        </a>
+      </div>
+    </section>
+
+    <!-- 底部版權宣告 -->
+    <footer class="text-center text-gray-500 text-sm py-4">
+      &copy; 2025 Nana & Johnny. All rights reserved.
+    </footer>
+
+  </main>
+
+  <script>
+    // JavaScript 實現倒數計時器
+    const countdown = () => {
+      // 設定婚禮日期（年份, 月份-1, 日期, 小時, 分鐘, 秒）
+      const weddingDate = new Date("2025-12-20T12:00:00").getTime();
+      const now = new Date().getTime();
+      const difference = weddingDate - now;
+
+      // 計算天、小時、分鐘、秒
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      // 顯示在網頁上
+      document.getElementById("countdown").innerHTML = 
+        `<div><span class="text-4xl">${days}</span><br>天</div>` + 
+        `<div><span class="text-4xl">${hours}</span><br>小時</div>` + 
+        `<div><span class="text-4xl">${minutes}</span><br>分鐘</div>` + 
+        `<div><span class="text-4xl">${seconds}</span><br>秒</div>`;
+
+      // 如果時間到了，顯示訊息
+      if (difference < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "我們結婚了！";
+      }
+    }
+
+    // 每秒更新一次計時器
+    setInterval(countdown, 1000);
+
+    // 音樂播放控制
+    const musicBtn = document.getElementById('musicBtn');
+    const bgm = document.getElementById('bgm');
+    const spinningDisk = document.getElementById('spinningDisk');
+    let isPlaying = false;
+
+    musicBtn.addEventListener('click', () => {
+      if (isPlaying) {
+        bgm.pause();
+        musicBtn.textContent = '▶ 播放音樂';
+        spinningDisk.classList.remove('is-playing');
+      } else {
+        bgm.play();
+        musicBtn.textContent = '⏸ 暫停音樂';
+        spinningDisk.classList.add('is-playing');
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // 頁面載入時先執行一次倒數計時
+    window.onload = countdown;
+  </script>
+</body>
+</html> 
