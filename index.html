@@ -22,12 +22,24 @@
       to { transform: rotate(360deg); }
     }
 
+    /* 新增唱片上下浮動動畫 */
+    @keyframes floatUp {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); } /* 向上浮動8px */
+      100% { transform: translateY(0); }
+    }
+
     /* 唱片容器樣式 */
     .disk-container {
-      width: 150px;
-      height: 150px;
+      width: 200px;
+      height: 200px;
       margin: 0 auto; /* 居中 */
       position: relative;
+    }
+
+    /* 播放音樂時，唱片容器會同時旋轉並浮動 */
+    .disk-container.is-floating {
+        animation: floatUp 3s ease-in-out infinite;
     }
 
     /* 唱片圖片樣式 */
@@ -37,36 +49,15 @@
       border-radius: 50%;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transform-origin: center center;
-      /* 背景改為漸層，讓唱片看起來更有層次感，
-        同時稍微降低不透明度，讓底圖可以稍微透出來。
-      */
-      background: rgba(255, 255, 255, 0.1);
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
-      /* 預設暫停動畫 */
       animation-play-state: paused;
     }
     
-    /* 播放時才啟動動畫 */
+    /* 播放時才啟動旋轉動畫 */
     .disk.is-playing {
       animation: spin 6s linear infinite;
       animation-play-state: running;
     }
     
-    /* 中間唱片孔 */
-    .disk::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 25px;
-      height: 25px;
-      background-color: #D6C5A9; /* 改為搭配的奶茶色 */
-      border-radius: 50%;
-      border: 3px solid #E8D2E7; /* 淺粉色邊框 */
-      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-    }
-
     /* 點擊進入頁面疊層樣式 */
     #overlay {
       position: fixed;
@@ -74,7 +65,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #E0D1C1; /* 改為溫暖的奶茶色 */
+      background-color: #E0D1C1;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -109,10 +100,6 @@
     <!-- 封面區塊 -->
     <section class="relative w-full h-96 overflow-hidden">
       <!-- 封面圖片 -->
-      <!-- 
-        請將這裡的圖片網址替換成你的高解析度婚紗照。
-        網址來自一個佔位符網站，請記得替換！
-      -->
       <img src="https://placehold.co/800x600/E8D2E7/ffffff?text=Nana+%26+Johnny" 
            alt="封面照片" class="absolute inset-0 w-full h-full object-cover">
       
@@ -141,9 +128,6 @@
         ▶ 播放音樂
       </button>
       <!-- 隱藏的音訊播放器 -->
-      <!--
-        檔案名稱已更改為 bgm.mp3，使用相對路徑來確保相容性
-      -->
       <audio id="bgm" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/raw/refs/heads/main/%E4%BD%A0%E7%9A%84.mp3" loop></audio>
     </section>
 
@@ -264,6 +248,7 @@
     const musicBtn = document.getElementById('musicBtn');
     const bgm = document.getElementById('bgm');
     const spinningDisk = document.getElementById('spinningDisk');
+    const diskContainer = document.querySelector('.disk-container'); // 取得唱片容器
     let isPlaying = false;
 
     // 新增點擊進入按鈕的事件監聽器
@@ -279,6 +264,7 @@
         isPlaying = true;
         musicBtn.textContent = '⏸ 暫停音樂';
         spinningDisk.classList.add('is-playing');
+        diskContainer.classList.add('is-floating'); // 新增浮動效果
       }).catch(error => {
         console.error("音樂播放失敗: ", error);
         // 如果播放失敗，仍然移除疊層
@@ -292,6 +278,7 @@
         bgm.pause();
         musicBtn.textContent = '▶ 播放音樂';
         spinningDisk.classList.remove('is-playing');
+        diskContainer.classList.remove('is-floating'); // 暫停時移除浮動效果
       } else {
         bgm.play().catch(error => {
           console.error("音樂播放失敗: ", error);
@@ -299,6 +286,7 @@
         });
         musicBtn.textContent = '⏸ 暫停音樂';
         spinningDisk.classList.add('is-playing');
+        diskContainer.classList.add('is-floating'); // 播放時新增浮動效果
       }
       isPlaying = !isPlaying;
     });
@@ -308,3 +296,4 @@
   </script>
 </body>
 </html>
+
