@@ -88,18 +88,18 @@
 
   <!-- 點擊進入疊層 -->
   <div id="overlay">
-    <!-- 這裡已根據您的修改，將文字更新為「吳蔡之囍！」 -->
     <p>吳蔡之囍！</p>
-    <!-- 這裡已根據您的修改，將按鈕文字更新為「點此進入」 -->
     <button id="enterBtn" class="mt-4 bg-white text-pink-500 px-6 py-3 rounded-full shadow-lg font-semibold hover:bg-gray-100 transition duration-300">
       點此進入
     </button>
   </div>
 
   <!-- 主要容器，限制最大寬度並居中，確保在任何螢幕上都美觀 -->
-  <main class="w-full max-w-lg mx-auto">
+  <!-- 移除主容器的背景色和陰影，讓它與頁面背景融為一體 -->
+  <main class="w-full max-w-lg mx-auto py-12">
 
     <!-- 封面區塊 -->
+    <!-- 移除背景色和陰影 -->
     <section class="relative w-full h-96 overflow-hidden">
       <!-- 封面圖片 -->
       <img src="https://placehold.co/800x600/E8D2E7/ffffff?text=Nana+%26+Johnny" 
@@ -111,7 +111,6 @@
       <!-- 封面文字內容 -->
       <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center">
         <h1 class="text-4xl font-bold mb-2 drop-shadow-md">Nana & Johnny</h1>
-        <!-- 這裡已根據您的修改，將文字更新為「We're Married！」 -->
         <p class="text-lg mb-4 drop-shadow-md">We're Married！</p>
         <div class="bg-white text-gray-800 px-6 py-2 rounded-full font-semibold shadow-lg">
           婚禮邀請函
@@ -120,10 +119,10 @@
     </section>
 
     <!-- 唱片區塊與音樂播放按鈕 -->
-    <section class="bg-stone-50 p-6 rounded-2xl shadow-xl -mt-16 relative z-10 mx-4 text-center">
+    <!-- 移除舊的背景與陰影樣式，讓內容更流暢 -->
+    <section class="mt-12 text-center">
       <h2 class="text-2xl font-bold text-pink-600 mb-4">我們的主題曲</h2>
       <div class="disk-container">
-        <!-- 這裡已根據您的修改，將圖片網址替換為您提供的連結 -->
         <img id="spinningDisk" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/blob/main/Love.jpg?raw=true" alt="旋轉唱片" class="disk">
       </div>
       <p class="mt-4 text-gray-600">你的 - 賀先人</p>
@@ -135,78 +134,74 @@
     </section>
 
     <!-- 倒數計時器區塊 -->
-    <section class="bg-stone-50 p-6 rounded-2xl shadow-xl mt-8 mx-4">
-      <div class="text-center">
-        <h2 class="text-2xl font-bold text-pink-600 mb-4">倒數計時</h2>
-        <div id="countdown" class="flex justify-center items-center space-x-4 text-3xl font-bold text-gray-800">
-          <!-- 計時器會在這裡顯示 -->
-        </div>
-        <p class="mt-4 text-gray-600">
-          2025 年 12 月 20 日
-        </p>
+    <!-- 移除舊的背景與陰影樣式，讓內容更流暢 -->
+    <section class="mt-12 text-center">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">倒數計時</h2>
+      <div id="countdown" class="flex justify-center items-center space-x-4 text-3xl font-bold text-gray-800">
+        <!-- 計時器會在這裡顯示 -->
       </div>
+      <p class="mt-4 text-gray-600">
+        2025 年 12 月 20 日
+      </p>
     </section>
 
     <!-- 婚禮資訊區塊 -->
-    <section class="bg-stone-50 p-6 rounded-2xl shadow-xl mt-8 mx-4">
-      <div class="text-center">
-        <h2 class="text-2xl font-bold text-pink-600 mb-4">婚禮資訊</h2>
-        <div class="text-gray-700 space-y-2">
-          <p>⏰ 迎賓 11:30 am | 入席 12:00 pm</p>
-          <p>📍 台中雅園新潮婚宴會館</p>
-          <a href="https://maps.app.goo.gl/your-map-link-here" target="_blank" class="inline-flex items-center text-pink-600 font-semibold underline hover:no-underline">
-            查看地圖與導航
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-6-4h4m0 0l-4-4m4 4l-4 4"></path>
-            </svg>
-          </a>
-        </div>
+    <!-- 移除舊的背景與陰影樣式，讓內容更流暢 -->
+    <section class="mt-12 text-center">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">婚禮資訊</h2>
+      <div class="text-gray-700 space-y-2">
+        <p>⏰ 迎賓 11:30 am | 入席 12:00 pm</p>
+        <p>📍 台中雅園新潮婚宴會館</p>
+        <a href="https://maps.app.goo.gl/your-map-link-here" target="_blank" class="inline-flex items-center text-pink-600 font-semibold underline hover:no-underline">
+          查看地圖與導航
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-6-4h4m0 0l-4-4m4 4l-4 4"></path>
+          </svg>
+        </a>
       </div>
     </section>
 
     <!-- 我們的故事區塊 -->
-    <section class="bg-stone-50 p-6 rounded-2xl shadow-xl mt-8 mx-4">
-      <div class="text-center">
-        <h2 class="text-2xl font-bold text-pink-600 mb-4">我們的故事</h2>
-        <div class="text-gray-700 text-left space-y-4">
-          <p>
-            從校園的青澀到踏入社會的成熟，我們相識、相愛，一起走過了無數個春夏秋冬。
-            這段旅程充滿了歡笑與淚水，每一個瞬間都讓我們更確信彼此就是對方的唯一。
-          </p>
-          <p>
-            我們邀請你來見證這份愛的延續，加入我們人生的新篇章。
-            你的到來，將會是我們最珍貴的祝福！
-          </p>
-        </div>
+    <!-- 移除舊的背景與陰影樣式，讓內容更流暢 -->
+    <section class="mt-12 text-center">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">我們的故事</h2>
+      <div class="text-gray-700 text-left space-y-4">
+        <p>
+          從校園的青澀到踏入社會的成熟，我們相識、相愛，一起走過了無數個春夏秋冬。
+          這段旅程充滿了歡笑與淚水，每一個瞬間都讓我們更確信彼此就是對方的唯一。
+        </p>
+        <p>
+          我們邀請你來見證這份愛的延續，加入我們人生的新篇章。
+          你的到來，將會是我們最珍貴的祝福！
+        </p>
       </div>
     </section>
 
     <!-- 照片牆區塊 -->
-    <section class="bg-stone-50 p-6 rounded-2xl shadow-xl mt-8 mx-4">
-      <div class="text-center">
-        <h2 class="text-2xl font-bold text-pink-600 mb-6">我們的回憶</h2>
-        <!-- 圖片網址來自佔位符，請務必替換成你的婚紗照或生活照！ -->
-        <div class="grid grid-cols-2 gap-4">
-          <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片1" alt="照片1" class="w-full h-auto rounded-xl shadow-md">
-          <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片2" alt="照片2" class="w-full h-auto rounded-xl shadow-md">
-          <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片3" alt="照片3" class="w-full h-auto rounded-xl shadow-md">
-          <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片4" alt="照片4" class="w-full h-auto rounded-xl shadow-md">
-        </div>
+    <!-- 移除舊的背景與陰影樣式，讓內容更流暢 -->
+    <section class="mt-12 text-center">
+      <h2 class="text-2xl font-bold text-pink-600 mb-6">我們的回憶</h2>
+      <!-- 圖片網址來自佔位符，請務必替換成你的婚紗照或生活照！ -->
+      <!-- 移除照片陰影 -->
+      <div class="grid grid-cols-2 gap-4">
+        <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片1" alt="照片1" class="w-full h-auto rounded-xl">
+        <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片2" alt="照片2" class="w-full h-auto rounded-xl">
+        <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片3" alt="照片3" class="w-full h-auto rounded-xl">
+        <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片4" alt="照片4" class="w-full h-auto rounded-xl">
       </div>
     </section>
 
     <!-- RSVP 與祝福區塊 -->
-    <section class="bg-stone-50 p-6 rounded-2xl shadow-xl mt-8 mb-12 mx-4">
-      <div class="text-center space-y-4">
-        <h2 class="text-2xl font-bold text-pink-600 mb-4">RSVP 回函</h2>
-        <p class="text-gray-700">
-          為了準備更完善的婚宴，懇請您於指定日期前回覆出席狀況。
-        </p>
-        <!-- 請將這裡的網址替換成你的 Google 表單連結 -->
-        <a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300">
-          點此前往填寫
-        </a>
-      </div>
+    <!-- 移除舊的背景與陰影樣式，讓內容更流暢 -->
+    <section class="mt-12 mb-12 text-center">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">RSVP 回函</h2>
+      <p class="text-gray-700">
+        為了準備更完善的婚宴，懇請您於指定日期前回覆出席狀況。
+      </p>
+      <!-- 請將這裡的網址替換成你的 Google 表單連結 -->
+      <a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300">
+        點此前往填寫
+      </a>
     </section>
 
     <!-- 底部版權宣告 -->
@@ -300,6 +295,5 @@
   </script>
 </body>
 </html>
-
 
 
