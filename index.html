@@ -42,23 +42,19 @@
         animation: floatUp 3s ease-in-out infinite;
     }
 
-    /* 唱片樣式 - 使用 background-image 和 CSS 變數來填滿 */
-    .disk {
+    /* 唱片樣式 - 圖片標籤 */
+    .disk-image {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background-size: cover; /* 讓背景圖片完全覆蓋容器 */
-      background-position: center; /* 讓圖片居中 */
-      background-repeat: no-repeat;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transform-origin: center center;
       animation-play-state: paused;
-      background-image: var(--disk-image-url);
-      background-color: #F4D7D7; /* 預設背景色，防止圖片載入失敗時出現空白 */
+      object-fit: cover; /* 關鍵：確保圖片完美填滿容器 */
     }
 
     /* 播放時才啟動旋轉動畫 */
-    .disk.is-playing {
+    .disk-image.is-playing {
       animation: spin 6s linear infinite;
       animation-play-state: running;
     }
@@ -86,12 +82,6 @@
     #overlay.fade-out {
       opacity: 0;
       pointer-events: none;
-    }
-  </style>
-  <style id="custom-styles">
-    /* 請將您的圖片網址替換到下方 url(...) 的引號內 */
-    :root {
-      --disk-image-url: url('Love.jpg');
     }
   </style>
 </head>
@@ -131,8 +121,9 @@
     <section class="mt-12 text-center">
       <h2 class="text-2xl font-bold text-pink-600 mb-4">我們的主題曲</h2>
       <div class="disk-container">
-        <!-- 這是唱片的容器。圖片會自動載入，您無需在此處修改 -->
-        <div id="spinningDisk" class="disk"></div>
+        <!-- 這是唱片的容器，裡面放了圖片標籤 -->
+        <!-- 圖片網址來自您上傳的檔案，您只需要將 src 屬性更換為您想使用的圖片檔名即可 -->
+        <img id="spinningDisk" src="Love.jpg" alt="唱片圖片" class="disk-image">
       </div>
       <p class="mt-4 text-gray-600">你的 - 賀先人</p>
       <!-- 隱藏的音訊播放器 -->
@@ -271,5 +262,4 @@
   </script>
 </body>
 </html>
-
 
