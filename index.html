@@ -42,18 +42,21 @@
         animation: floatUp 3s ease-in-out infinite;
     }
 
-    /* 唱片圖片樣式 */
+    /* 唱片樣式 - 使用 background-image 和 CSS 變數來填滿 */
     .disk {
       width: 100%;
       height: 100%;
-      /* 確保圖片填滿並裁剪成圓形 */
-      object-fit: cover;
       border-radius: 50%;
+      background-size: cover; /* 讓背景圖片完全覆蓋容器 */
+      background-position: center; /* 讓圖片居中 */
+      background-repeat: no-repeat;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transform-origin: center center;
       animation-play-state: paused;
+      background-image: var(--disk-image-url);
+      background-color: #F4D7D7; /* 預設背景色，防止圖片載入失敗時出現空白 */
     }
-    
+
     /* 播放時才啟動旋轉動畫 */
     .disk.is-playing {
       animation: spin 6s linear infinite;
@@ -67,7 +70,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #E8D2E7;
+      background-color: #E0D1C1;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -85,6 +88,12 @@
       pointer-events: none;
     }
   </style>
+  <style id="custom-styles">
+    /* 請將您的圖片網址替換到下方 url(...) 的引號內 */
+    :root {
+      --disk-image-url: url('https://placehold.co/200x200/F4D7D7/ffffff?text=您的照片');
+    }
+  </style>
 </head>
 <body class="bg-stone-100 min-h-screen flex flex-col items-center">
 
@@ -97,11 +106,9 @@
   </div>
 
   <!-- 主要容器，限制最大寬度並居中，確保在任何螢幕上都美觀 -->
-  <!-- 移除主容器的背景色和陰影，讓它與頁面背景融為一體 -->
   <main class="w-full max-w-lg mx-auto py-12">
 
     <!-- 封面區塊 -->
-    <!-- 移除背景色和陰影 -->
     <section class="relative w-full h-96 overflow-hidden">
       <!-- 封面圖片 -->
       <img src="https://placehold.co/800x600/E8D2E7/ffffff?text=Nana+%26+Johnny" 
@@ -121,21 +128,18 @@
     </section>
 
     <!-- 唱片區塊與音樂播放 -->
-    <!-- 移除舊的背景與陰影樣式，讓內容更流暢 -->
     <section class="mt-12 text-center">
       <h2 class="text-2xl font-bold text-pink-600 mb-4">我們的主題曲</h2>
       <div class="disk-container">
-        <!-- 這是唱片的圖片，您只需修改 `src` 屬性中的網址即可替換圖片 -->
-        <img id="spinningDisk" src="Love.jpg" alt="旋轉唱片" class="disk">
+        <!-- 這是唱片的容器。圖片會自動載入，您無需在此處修改 -->
+        <div id="spinningDisk" class="disk"></div>
       </div>
-      <p class="mt-4 text-gray-600"> Mr. & Mrs. </p>
-      <!-- 移除音樂播放按鈕 -->
+      <p class="mt-4 text-gray-600">你的 - 賀先人</p>
       <!-- 隱藏的音訊播放器 -->
       <audio id="bgm" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/raw/refs/heads/main/%E4%BD%A0%E7%9A%84.mp3" loop></audio>
     </section>
 
     <!-- 倒數計時器區塊 -->
-    <!-- 移除舊的背景與陰影樣式，讓內容更流暢 -->
     <section class="mt-12 text-center">
       <h2 class="text-2xl font-bold text-pink-600 mb-4">倒數計時</h2>
       <div id="countdown" class="flex justify-center items-center space-x-4 text-3xl font-bold text-gray-800">
@@ -147,7 +151,6 @@
     </section>
 
     <!-- 婚禮資訊區塊 -->
-    <!-- 移除舊的背景與陰影樣式，讓內容更流暢 -->
     <section class="mt-12 text-center">
       <h2 class="text-2xl font-bold text-pink-600 mb-4">婚禮資訊</h2>
       <div class="text-gray-700 space-y-2">
@@ -163,7 +166,6 @@
     </section>
 
     <!-- 我們的故事區塊 -->
-    <!-- 移除舊的背景與陰影樣式，讓內容更流暢 -->
     <section class="mt-12 text-center">
       <h2 class="text-2xl font-bold text-pink-600 mb-4">我們的故事</h2>
       <div class="text-gray-700 text-left space-y-4">
@@ -179,11 +181,9 @@
     </section>
 
     <!-- 照片牆區塊 -->
-    <!-- 移除舊的背景與陰影樣式，讓內容更流暢 -->
     <section class="mt-12 text-center">
       <h2 class="text-2xl font-bold text-pink-600 mb-6">我們的回憶</h2>
       <!-- 圖片網址來自佔位符，請務必替換成你的婚紗照或生活照！ -->
-      <!-- 移除照片陰影 -->
       <div class="grid grid-cols-2 gap-4">
         <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片1" alt="照片1" class="w-full h-auto rounded-xl">
         <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片2" alt="照片2" class="w-full h-auto rounded-xl">
@@ -193,7 +193,6 @@
     </section>
 
     <!-- RSVP 與祝福區塊 -->
-    <!-- 移除舊的背景與陰影樣式，讓內容更流暢 -->
     <section class="mt-12 mb-12 text-center">
       <h2 class="text-2xl font-bold text-pink-600 mb-4">RSVP 回函</h2>
       <p class="text-gray-700">
