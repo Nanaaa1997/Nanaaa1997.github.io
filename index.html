@@ -6,14 +6,14 @@
   <title>Nana ❤️ Johnny 的婚禮邀請函</title>
   <!-- 引入 Tailwind CSS CDN，用於快速排版與設計 -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- 引入 Google Fonts 的 Inter 字體，讓文字更美觀 -->
+  <!-- 引入 Google Fonts 的 Taichung font，也就是您說的娃娃體 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Taichung:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* 設定全域字體為 Inter */
+    /* 設定全域字體為 Taichung */
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Taichung', sans-serif;
     }
 
     /* 唱片旋轉動畫 */
@@ -106,7 +106,7 @@
       </div>
     </section>
 
-    <!-- 旋轉照片與音樂播放 -->
+    <!-- 1. 旋轉照片與音樂播放 -->
     <section class="mt-12 text-center">
       <h2 class="text-2xl font-bold text-pink-600 mb-4">我們的回憶</h2>
       <div class="disk-container">
@@ -118,33 +118,16 @@
       <audio id="bgm" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/raw/refs/heads/main/%E4%BD%A0%E7%9A%84.mp3" loop></audio>
     </section>
 
-    <!-- 倒數計時器區塊 -->
+    <!-- 2. 兩張照片並排 -->
     <section class="mt-12 text-center">
-      <h2 class="text-2xl font-bold text-pink-600 mb-4">倒數計時</h2>
-      <div id="countdown" class="flex justify-center items-center space-x-4 text-3xl font-bold text-gray-800">
-        <!-- 計時器會在這裡顯示 -->
-      </div>
-      <p class="mt-4 text-gray-600">
-        2025 年 12 月 20 日
-      </p>
-    </section>
-
-    <!-- 婚禮資訊區塊 -->
-    <section class="mt-12 text-center">
-      <h2 class="text-2xl font-bold text-pink-600 mb-4">婚禮資訊</h2>
-      <div class="text-gray-700 space-y-2">
-        <p>⏰ 迎賓 11:30 am | 入席 12:00 pm</p>
-        <p>📍 台中雅園新潮婚宴會館</p>
-        <a href="https://maps.app.goo.gl/your-map-link-here" target="_blank" class="inline-flex items-center text-pink-600 font-semibold underline hover:no-underline">
-          查看地圖與導航
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-6-4h4m0 0l-4-4m4 4l-4 4"></path>
-          </svg>
-        </a>
+      <h2 class="text-2xl font-bold text-pink-600 mb-6">我們的點滴</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片1" alt="照片1" class="w-full h-auto rounded-xl">
+        <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片2" alt="照片2" class="w-full h-auto rounded-xl">
       </div>
     </section>
 
-    <!-- 我們的故事區塊 -->
+    <!-- 3. 長形文字框 (我們的故事) -->
     <section class="mt-12 text-center">
       <h2 class="text-2xl font-bold text-pink-600 mb-4">我們的故事</h2>
       <div class="text-gray-700 text-left space-y-4">
@@ -159,19 +142,72 @@
       </div>
     </section>
 
-    <!-- 照片牆區塊 -->
-    <section class="mt-12 text-center">
-      <h2 class="text-2xl font-bold text-pink-600 mb-6">我們的回憶</h2>
-      <!-- 圖片網址來自佔位符，請務必替換成你的婚紗照或生活照！ -->
-      <div class="grid grid-cols-2 gap-4">
-        <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片1" alt="照片1" class="w-full h-auto rounded-xl">
-        <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片2" alt="照片2" class="w-full h-auto rounded-xl">
-        <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片3" alt="照片3" class="w-full h-auto rounded-xl">
-        <img src="https://placehold.co/400x300/F5A2C9/ffffff?text=照片4" alt="照片4" class="w-full h-auto rounded-xl">
+    <!-- 4. 左圖 + 右邊文字框 -->
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4 text-center">愛的旅程</h2>
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <div class="flex-1 w-full md:w-1/2">
+          <img src="https://placehold.co/600x400/D9E2F7/ffffff?text=照片3" alt="旅行照片" class="rounded-xl w-full h-auto">
+        </div>
+        <div class="flex-1 w-full md:w-1/2 text-gray-700 text-left space-y-4">
+          <p>
+            我們最喜歡一起旅行，每一次的冒險都是我們故事的一部分。從高山到海邊，從城市到鄉村，每個腳印都充滿了我們共同的回憶。
+          </p>
+          <p>
+            這些旅行不僅僅是風景，更是我們感情的見證，教會我們如何在未知中相互扶持。
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- RSVP 與祝福區塊 -->
+    <!-- 5. 左邊文字框 + 右圖 -->
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4 text-center">生活日常</h2>
+      <div class="flex flex-col md:flex-row-reverse items-center gap-6">
+        <div class="flex-1 w-full md:w-1/2">
+          <img src="https://placehold.co/600x400/E8D2E7/ffffff?text=照片4" alt="日常照片" class="rounded-xl w-full h-auto">
+        </div>
+        <div class="flex-1 w-full md:w-1/2 text-gray-700 text-left space-y-4">
+          <p>
+            愛，不只在特別的時刻，更在每天的平凡中。一起煮飯、看電影、遛狗，這些看似普通的小事，都是我們幸福的來源。
+          </p>
+          <p>
+            感謝你陪我一起把簡單的生活過成詩，讓每個日子都充滿驚喜。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 長形文字框 (感謝詞) -->
+    <section class="mt-12 text-center">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">感謝有你</h2>
+      <div class="text-gray-700 text-left space-y-4">
+        <p>
+          親愛的家人、朋友，謝謝你們在我們人生每個階段的支持與陪伴。
+          你們的愛與鼓勵，是我們走到今天最大的動力。
+        </p>
+        <p>
+          我們期盼在婚禮上看到你們的笑容，一起分享這份喜悅。
+        </p>
+      </div>
+    </section>
+
+    <!-- 7. 婚禮資訊區塊 -->
+    <section class="mt-12 text-center">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">婚禮資訊</h2>
+      <div class="text-gray-700 space-y-2">
+        <p>⏰ 迎賓 11:30 am | 入席 12:00 pm</p>
+        <p>📍 台中雅園新潮婚宴會館</p>
+        <a href="https://maps.app.goo.gl/your-map-link-here" target="_blank" class="inline-flex items-center text-pink-600 font-semibold underline hover:no-underline">
+          查看地圖與導航
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-6-4h4m0 0l-4-4m4 4l-4 4"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- 8. RSVP 與祝福區塊 -->
     <section class="mt-12 mb-12 text-center">
       <h2 class="text-2xl font-bold text-pink-600 mb-4">RSVP 回函</h2>
       <p class="text-gray-700">
@@ -181,6 +217,17 @@
       <a href="https://docs.google.com/forms/d/e/your-form-id/viewform" target="_blank" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300">
         點此前往填寫
       </a>
+    </section>
+
+    <!-- 9. 倒數計時器區塊 -->
+    <section class="mt-12 text-center">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">倒數計時</h2>
+      <div id="countdown" class="flex justify-center items-center space-x-4 text-3xl font-bold text-gray-800">
+        <!-- 計時器會在這裡顯示 -->
+      </div>
+      <p class="mt-4 text-gray-600">
+        2025 年 12 月 20 日
+      </p>
     </section>
 
     <!-- 底部版權宣告 -->
