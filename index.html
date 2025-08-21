@@ -46,6 +46,8 @@
     .disk {
       width: 100%;
       height: 100%;
+      /* 確保圖片填滿並裁剪成圓形 */
+      object-fit: cover;
       border-radius: 50%;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transform-origin: center center;
@@ -123,10 +125,10 @@
     <section class="mt-12 text-center">
       <h2 class="text-2xl font-bold text-pink-600 mb-4">我們的主題曲</h2>
       <div class="disk-container">
-        <!-- 修正唱片圖片網址，使用您提供的圖片 -->
-        <img id="spinningDisk" src="/workspaces/Nanaaa1997.github.io/Love.jpg>
+        <!-- 這是唱片的圖片，您只需修改 `src` 屬性中的網址即可替換圖片 -->
+        <img id="spinningDisk" src="http://googleusercontent.com/file_content/6" alt="旋轉唱片" class="disk">
       </div>
-      <p class="mt-4 text-gray-600"> Mr. & Mrs. </p>
+      <p class="mt-4 text-gray-600">你的 - 賀先人</p>
       <!-- 移除音樂播放按鈕 -->
       <!-- 隱藏的音訊播放器 -->
       <audio id="bgm" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/raw/refs/heads/main/%E4%BD%A0%E7%9A%84.mp3" loop></audio>
@@ -270,6 +272,5 @@
   </script>
 </body>
 </html>
-
 
 
