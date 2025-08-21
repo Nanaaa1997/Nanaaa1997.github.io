@@ -118,7 +118,7 @@
       </div>
     </section>
 
-    <!-- 唱片區塊與音樂播放按鈕 -->
+    <!-- 唱片區塊與音樂播放 -->
     <!-- 移除舊的背景與陰影樣式，讓內容更流暢 -->
     <section class="mt-12 text-center">
       <h2 class="text-2xl font-bold text-pink-600 mb-4">我們的主題曲</h2>
@@ -127,9 +127,7 @@
         <img id="spinningDisk" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/blob/main/disk.png?raw=true" alt="旋轉唱片" class="disk">
       </div>
       <p class="mt-4 text-gray-600">你的 - 賀先人</p>
-      <button id="musicBtn" class="mt-4 bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full shadow-lg transition duration-300">
-        ▶ 播放音樂
-      </button>
+      <!-- 移除音樂播放按鈕 -->
       <!-- 隱藏的音訊播放器 -->
       <audio id="bgm" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/raw/refs/heads/main/%E4%BD%A0%E7%9A%84.mp3" loop></audio>
     </section>
@@ -244,11 +242,9 @@
     setInterval(countdown, 1000);
 
     // 音樂播放控制
-    const musicBtn = document.getElementById('musicBtn');
     const bgm = document.getElementById('bgm');
     const spinningDisk = document.getElementById('spinningDisk');
     const diskContainer = document.querySelector('.disk-container'); // 取得唱片容器
-    let isPlaying = false;
 
     // 新增點擊進入按鈕的事件監聽器
     const enterBtn = document.getElementById('enterBtn');
@@ -259,36 +255,14 @@
       bgm.play().then(() => {
         // 移除疊層
         overlay.classList.add('fade-out');
-        // 將播放狀態設為 true
-        isPlaying = true;
-        musicBtn.textContent = '⏸ 暫停音樂';
+        // 播放時，啟動唱片旋轉和浮動動畫
         spinningDisk.classList.add('is-playing');
-        diskContainer.classList.add('is-floating'); // 新增浮動效果
+        diskContainer.classList.add('is-floating'); 
       }).catch(error => {
         console.error("音樂播放失敗: ", error);
         // 如果播放失敗，仍然移除疊層
         overlay.classList.add('fade-out');
-        musicBtn.textContent = '音樂播放失敗';
       });
-    });
-
-    musicBtn.addEventListener('click', () => {
-      if (isPlaying) {
-        bgm.pause();
-        musicBtn.textContent = '▶ 播放音樂';
-        spinningDisk.classList.remove('is-playing');
-        diskContainer.classList.remove('is-floating'); // 暫停時移除浮動效果
-      } else {
-        bgm.play().catch(error => {
-          console.error("音樂播放失敗: ", error);
-          musicBtn.textContent = '音樂播放失敗';
-        });
-        // 這裡已根據您的修改，將文字更新為「⏸ 暫停音樂」
-        musicBtn.textContent = '⏸ 暫停音樂';
-        spinningDisk.classList.add('is-playing');
-        diskContainer.classList.add('is-floating'); // 播放時新增浮動效果
-      }
-      isPlaying = !isPlaying;
     });
 
     // 頁面載入時先執行一次倒數計時
