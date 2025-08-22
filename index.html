@@ -113,8 +113,12 @@
         <!-- 這是旋轉照片的容器 -->
         <img id="spinningDisk" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/blob/main/%E5%94%B1%E7%89%87.png?raw=true" alt="唱片圖片" class="disk-image">
       </div>
-      <div class="flex justify-center mt-4"</div>
-      <img src="https://placehold.co/50x50/F5A2C9/ffffff?text=PLAY" alt="Play Button" class="w-12 h-12 cursor-pointer rounded-full shadow-md">
+      <div class="flex justify-center mt-4">
+        <!-- 使用 SVG 取代圖片，可直接用 CSS 改變顏色和大小 -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 cursor-pointer rounded-full text-pink-500 bg-white p-2 shadow-md" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </div>
       <!-- 隱藏的音訊播放器 -->
       <audio id="bgm" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/raw/refs/heads/main/%E4%BD%A0%E7%9A%84.mp3" loop></audio>
     </section>
@@ -130,14 +134,17 @@
 
     <!-- 3. 長形文字框 (Welcome To Our Wedding) -->
     <section class="mt-12 text-center">
-      <h2 class="text-2xl font-bold text-pink-600 mb-4">Welcome to Our Wedding </h2>
-      <div class="text-gray-700 text-left space-y-4">
-        <p> class="text-center"
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">Welcome to Our Wedding</h2>
+      <div class="text-gray-700 text-center space-y-4">
+        <p>
+          從校園的青澀到踏入社會的成熟，我們相識、相愛，一起走過了無數個春夏秋冬。
+          這段旅程充滿了歡笑與淚水，每一個瞬間都讓我們更確信彼此就是對方的唯一。
+        </p>
+        <p>
           浪漫的不只有鮮花和夕陽<br>
           是細水長流<br>
           是來日方長。
         </p>
-  
       </div>
     </section>
 
@@ -146,10 +153,11 @@
       <h2 class="text-2xl font-bold text-pink-600 mb-4 text-center">愛的旅程</h2>
       <div class="flex flex-col md:flex-row items-center gap-6">
         <div class="flex-1 w-full md:w-1/2">
-          <img src="Johnny 獨照.jpg" alt="旅行照片" class="rounded-xl w-full h-auto">
+          <!-- 圖片網址已更換為預留圖，請自行替換 -->
+          <img src="https://placehold.co/600x400/D9E2F7/ffffff?text=Johnny+%E7%8D%A8%E7%85%A7" alt="旅行照片" class="rounded-xl w-full h-auto">
         </div>
         <div class="flex-1 w-full md:w-1/2 text-gray-700 text-left space-y-4">
-          <p> class="text-center"
+          <p>
             有些人<br>
             一旦遇見<br>
             便一眼萬年。
@@ -272,7 +280,6 @@
     // 音樂播放控制
     const bgm = document.getElementById('bgm');
     const spinningDisk = document.getElementById('spinningDisk');
-    const diskContainer = document.querySelector('.disk-container'); // 取得唱片容器
     const enterBtn = document.getElementById('enterBtn');
     const overlay = document.getElementById('overlay');
     
