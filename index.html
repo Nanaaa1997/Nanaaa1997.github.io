@@ -16,6 +16,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* 設定全域字體為 Taichung */
     body {
@@ -25,6 +28,12 @@
     #Groom-title, #Bride-title, #Welcome-title{
      font-family: 'Grey Qo', cursive;
   }
+    /* 針對特定的標題應用 "Tangerine" 字體 */
+    #SaveTheDateText {
+     font-family: 'Grey Qo', cursive;
+     font-size: 1.25rem; /* 你可以調整這個數字來改變字體大小 */
+     font-weight: normal; /* 如果 'Tangerine' 字體沒有粗體，可以將此設定為 normal */
+
     /* 唱片旋轉動畫 */
     @keyframes spin {
       from { transform: rotate(0deg); }
@@ -109,7 +118,7 @@
       <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center">
         <h1 class="text-4xl font-bold mb-2 drop-shadow-md">Nana & Johnny</h1>
         <p class="text-lg mb-4 drop-shadow-md">We're Married！</p>
-        <div class="bg-white text-gray-800 px-6 py-2 rounded-full font-semibold shadow-lg">
+        <div id="SaveTheDateText" class="bg-white text-gray-800 px-6 py-2 rounded-full font-semibold shadow-lg">
           Save The Date
         </div>
       </div>
