@@ -1,14 +1,3 @@
-這一段程式碼看起來是混亂的。 在 <div id="overlay"> 裡面，你把 <div id="overlay-background"></div> 這個元素刪掉了，而且在 <style> 標籤裡面的 #overlay-background 和 #overlay-background::after 樣式也都不完整。這導致圖片沒辦法正常顯示，所以看起來會是全透明的。
-
-另外，你的程式碼裡也有一些標籤重複或不完整，這也會讓頁面無法正常顯示。例如，在 <section class="relative w-full h-96 overflow-hidden"> 裡， <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center"> 這個標籤有多餘的 <br> </div>，這也需要移除。
-
-我已經修正了你所有的程式碼，並在 <div id="overlay"> 中重新加入了正確的背景圖層，以及對應的 CSS 樣式。現在你的背景會帶有半透明的「霧感」，並且前景的文字和按鈕可以正常顯示。
-
-請用下面的完整程式碼替換你原來的檔案：
-
-完整的 HTML 程式碼
-HTML
-
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -159,7 +148,7 @@ HTML
         </section>
 
         <section class="mt-12 text-center">
-            <h2 id="SaveTheDateText" class="text-10xl font-bold text-pink-600 mb-4">Save The Date</h2>
+            <h2 id="SaveTheDateText" class="text-8xl font-bold text-pink-600 mb-4">Save The Date</h2>
             <div class="disk-container">
                 <img id="spinningDisk" src="去背唱片.png" alt="唱片圖片" class="disk-image">
             </div>
@@ -198,7 +187,6 @@ HTML
                 </div>
                 <div class="inline-blox font-iansui flex-1 w-full md:w-1/2 text-gray-700 text-left space-y-4">
                     <p>
-                        /<br>                      
                         有些人<br>
                         一旦遇見<br>
                         便一眼萬年。
@@ -215,7 +203,6 @@ HTML
                 </div>
                 <div class="inline-blox font-iansui flex-1 w-full md:w-1/2 text-gray-700 text-right space-y-4">
                     <p>
-                        /<br>
                         上一秒這裡還是傾盆大雨<br>
                         下一秒心就因你晴空萬里。
                     </p>
@@ -310,61 +297,4 @@ HTML
             const days = Math.floor(difference / (1000 * 60 * 60 * 24));
             const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            // 顯示在網頁上
-            document.getElementById("countdown").innerHTML = 
-                `<div><span class="text-4xl">${days}</span><br>天</div>` + 
-                `<div><span class="text-4xl">${hours}</span><br>小時</div>` + 
-                `<div><span class="text-4xl">${minutes}</span><br>分鐘</div>` + 
-                `<div><span class="text-4xl">${seconds}</span><br>秒</div>`;
-
-            // 如果時間到了，顯示訊息
-            if (difference < 0) {
-                clearInterval(x);
-                document.getElementById("countdown").innerHTML = "我們結婚了！";
-            }
-        }
-        // 每秒更新一次計時器
-        setInterval(countdown, 1000);
-
-        // 音樂播放控制
-        const bgm = document.getElementById('bgm');
-        const spinningDisk = document.getElementById('spinningDisk');
-        const enterBtn = document.getElementById('enterBtn');
-        const overlay = document.getElementById('overlay');
-        
-        // 點擊進入按鈕的事件監聽器
-        enterBtn.addEventListener('click', () => {
-            const playPromise = bgm.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    overlay.classList.add('fade-out');
-                    spinningDisk.classList.add('is-playing');
-                }).catch(error => {
-                    console.error("音樂播放失敗，但仍繼續頁面轉換。", error);
-                    overlay.classList.add('fade-out');
-                    spinningDisk.classList.add('is-playing');
-                });
-            } else {
-                overlay.classList.add('fade-out');
-                spinningDisk.classList.add('is-playing');
-            }
-        });
-
-        // 點擊唱片時播放/暫停音樂
-        spinningDisk.addEventListener('click', () => {
-            if (bgm.paused) {
-                bgm.play();
-                spinningDisk.classList.add('is-playing');
-            } else {
-                bgm.pause();
-                spinningDisk.classList.remove('is-playing');
-            }
-        });
-
-        // 頁面載入時先執行一次倒數計時
-        window.onload = countdown;
-    </script>
-</body>
-</html>
+            const seconds = Math.
