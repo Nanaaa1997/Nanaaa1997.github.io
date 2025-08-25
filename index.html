@@ -10,121 +10,107 @@
     <link href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=LXGW+WenKai+TC&family=Tangerine:wght@400;700&family=Iansui&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        /* 設定全域字體為 LXGW WenKai TC */
-        body {
-            font-family: 'LXGW WenKai TC', sans-serif;
-        }
-        /* 針對特定的標題應用 "Grey Qo" 字體 */
-        #Groom-title, #Bride-title, #Welcome-title, #SaveTheDateText {
-            font-family: 'Grey Qo', cursive;
-        }
-        /* 為主要文字段落定義 Iansui 字體 */
-        .font-iansui {
-            font-family: 'Iansui', sans-serif;
-        }
-        #SaveTheDateText {
-            font-size: 1.25rem;
-            font-weight: normal;
-        }
-        
-        /* 唱片旋轉動畫 */
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        /* 唱片上下浮動動畫 */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); } /* 浮動的高度，可以調整 */
-            100% { transform: translateY(0px); }
-        }
+    /* 設定全域字體為 LXGW WenKai TC */
+    body {
+        font-family: 'LXGW WenKai TC', sans-serif;
+    }
+    /* 針對特定的標題應用 "Grey Qo" 字體 */
+    #Groom-title, #Bride-title, #Welcome-title, #SaveTheDateText {
+        font-family: 'Grey Qo', cursive;
+    }
+    /* 為主要文字段落定義 Iansui 字體 */
+    .font-iansui {
+        font-family: 'Iansui', sans-serif;
+    }
+    
+    /* 唱片旋轉動畫 */
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
+    /* 唱片上下浮動動畫 */
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); } /* 浮動的高度，可以調整 */
+        100% { transform: translateY(0px); }
+    }
 
-        /* 愛心跳動 */
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            14% { transform: scale(1.3); }
-            28% { transform: scale(1); }
-            42% { transform: scale(1.3); }
-            70% { transform: scale(1); }
-        }
-        .animate-heartbeat {
-            animation: heartbeat 1.5s infinite; /* 動畫名稱, 持續時間, 重複次數 */
-        }
+    /* 愛心跳動 */
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        14% { transform: scale(1.3); }
+        28% { transform: scale(1); }
+        42% { transform: scale(1.3); }
+        70% { transform: scale(1); }
+    }
+    .animate-heartbeat {
+        animation: heartbeat 1.5s infinite; /* 動畫名稱, 持續時間, 重複次數 */
+    }
 
-        /* 唱片容器樣式 */
-        .disk-container {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto;
-            position: relative;
-            /* 套用浮動動畫 */
-            animation: float 3s ease-in-out infinite;
-        }
-        /* 唱片樣式 - 圖片標籤 */
-        .disk-image {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transform-origin: center center;
-            animation-play-state: paused;
-            object-fit: cover;
-            cursor: pointer;
-        }
-        /* 播放時才啟動旋轉動畫 */
-        .disk-image.is-playing {
-            animation: spin 6s linear infinite;
-            animation-play-state: running;
-        }
-        
-        /* 點擊進入頁面疊層樣式 */
-        #overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            color: white; /* 文字設為白色以在深色背景上可見 */
-            font-size: 1.5rem;
-            font-weight: bold;
-            z-index: 1000;
-            transition: opacity 0.5s ease-in-out;
-            overflow: hidden; /* 確保背景圖層不會超出範圍 */
-        }
-        /* 新增一個背景圖層，使用 z-index 讓他位於內容之下 */
-        #overlay-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('你的圖片名稱.jpg'); /* 替換成你的圖片檔名 */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            z-index: -1; /* 確保背景在文字和按鈕下方 */
-        }
-        /* 在背景圖層上疊加半透明的黑色濾鏡 */
-        #overlay-background::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3); /* 黑色濾鏡，透明度 0.3，可調整 */
-        }
-        #overlay.fade-out {
-            opacity: 0;
-            pointer-events: none;
-        }
-    </style>
+    /* 唱片容器樣式 */
+    .disk-container {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        position: relative;
+        /* 套用浮動動畫 */
+        animation: float 3s ease-in-out infinite;
+    }
+    /* 唱片樣式 - 圖片標籤 */
+    .disk-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transform-origin: center center;
+        animation-play-state: paused;
+        object-fit: cover;
+        cursor: pointer;
+    }
+    /* 播放時才啟動旋轉動畫 */
+    .disk-image.is-playing {
+        animation: spin 6s linear infinite;
+        animation-play-state: running;
+    }
+    
+    /* 點擊進入頁面疊層樣式 */
+    #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        color: white; /* 文字設為白色以在深色背景上可見 */
+        font-size: 1.5rem;
+        font-weight: bold;
+        z-index: 1000;
+        transition: opacity 0.5s ease-in-out;
+        overflow: hidden; /* 確保背景圖層不會超出範圍 */
+    }
+    /* 新增一個背景圖層，使用 z-index 讓他位於內容之下 */
+    #overlay-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('你的圖片名稱.jpg'); /* 替換成你的圖片檔名 */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1; /* 確保背景在文字和按鈕下方 */
+    }
+    #overlay.fade-out {
+        opacity: 0;
+        pointer-events: none;
+    }
+</style>
 </head>
 <body class="bg-stone-100 min-h-screen flex flex-col items-center">
 
