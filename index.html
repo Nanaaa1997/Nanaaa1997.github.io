@@ -1,75 +1,94 @@
-<script>
-    // JavaScript 實現倒數計時器
-    const countdown = () => {
-      // 設定婚禮日期（年份, 月份-1, 日期, 小時, 分鐘, 秒）
-      const weddingDate = new Date("2025-12-20T12:00:00").getTime();
-      const now = new Date().getTime();
-      const difference = weddingDate - now;
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nana ❤️ Johnny 的婚禮邀請函</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=LXGW+WenKai+TC&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* 設定全域字體為 LXGW WenKai TC */
+    body {
+      font-family: 'LXGW WenKai TC', sans-serif;
+    }
+    /* 針對特定的標題應用 "Grey Qo" 字體 */
+    #Groom-title, #Bride-title, #Welcome-title, #SaveTheDateText {
+      font-family: 'Grey Qo', cursive;
+    }
+    #SaveTheDateText {
+      font-size: 1.25rem;
+      font-weight: normal;
+    }
+    /* 唱片旋轉動畫 */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    /* 唱片容器樣式 */
+    .disk-container {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    /* 唱片樣式 - 圖片標籤 */
+    .disk-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transform-origin: center center;
+      animation-play-state: paused;
+      object-fit: cover;
+      cursor: pointer;
+    }
+    /* 播放時才啟動旋轉動畫 */
+    .disk-image.is-playing {
+      animation: spin 6s linear infinite;
+      animation-play-state: running;
+    }
+    /* 點擊進入頁面疊層樣式 */
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #F4D7D7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: #374151;
+      font-size: 1.5rem;
+      font-weight: bold;
+      z-index: 1000;
+      transition: opacity 0.5s ease-in-out;
+    }
+    #overlay.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="bg-stone-100 min-h-screen flex flex-col items-center">
 
-      // 計算天、小時、分鐘、秒
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+  <div id="overlay">
+    <p>吳蔡之囍</p>
+    <button id="enterBtn" class="mt-4 bg-white text-pink-500 px-6 py-3 rounded-full shadow-lg font-semibold hover:bg-gray-100 transition duration-300">
+      點此進入
+    </button>
+  </div>
 
-      // 顯示在網頁上
-      document.getElementById("countdown").innerHTML = 
-        `<div><span class="text-4xl">${days}</span><br>天</div>` + 
-        `<div><span class="text-4xl">${hours}</span><br>小時</div>` + 
-        `<div><span class="text-4xl">${minutes}</span><br>分鐘</div>` + 
-        `<div><span class="text-4xl">${seconds}</span><br>秒</div>`;
+  <main class="w-full max-w-lg mx-auto py-10 px-6">
 
-      // 如果時間到了，顯示訊息
-      if (difference < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "我們結婚了！";
-      }
-    }
-
-    // 每秒更新一次計時器
-    setInterval(countdown, 1000);
-
-    // 音樂播放控制
-    const bgm = document.getElementById('bgm');
-    const spinningDisk = document.getElementById('spinningDisk');
-    const enterBtn = document.getElementById('enterBtn');
-    const overlay = document.getElementById('overlay');
-    
-    // 點擊進入按鈕的事件監聽器
-    enterBtn.addEventListener('click', () => {
-      // 點擊後播放音樂並移除疊層
-      const playPromise = bgm.play();
-
-      // 處理 Promise 確保動畫執行
-      if (playPromise !== undefined) {
-        playPromise.then(_ => {
-          // 成功播放，啟動動畫並隱藏疊層
-          overlay.classList.add('fade-out');
-          spinningDisk.classList.add('is-playing');
-        }).catch(error => {
-          // 播放被阻擋，依然隱藏疊層並啟動動畫
-          console.log("音樂播放失敗，但仍繼續頁面轉換。");
-          overlay.classList.add('fade-out');
-          spinningDisk.classList.add('is-playing');
-        });
-      } else {
-        // 舊版瀏覽器或沒有 Promise，直接執行
-        overlay.classList.add('fade-out');
-        spinningDisk.classList.add('is-playing');
-      }
-    });
-
-    // 點擊照片的事件監聽器，用來播放/暫停音樂
-    spinningDisk.addEventListener('click', () => {
-        if (bgm.paused) {
-            bgm.play();
-            spinningDisk.classList.add('is-playing');
-        } else {
-            bgm.pause();
-            spinningDisk.classList.remove('is-playing');
-        }
-    });
-
-    // 頁面載入時先執行一次倒數計時
-    window.onload = countdown;
-</script>
+    <section class="relative w-full h-96 overflow-hidden">
+      <img src="https://placehold.co/800x600/E8D2E7/ffffff?text=Nana+%26+Johnny" 
+        alt="Nana 與 Johnny 的婚紗封面照片" class="absolute inset-0 w-full h-full object-cover">
+      
+      <div class="absolute inset-0 bg-black opacity-30"></div>
+      
+      <div class="absolute inset-0 flex flex-col
