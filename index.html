@@ -27,12 +27,22 @@
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
+    
+    /* 唱片上下浮動動畫 */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); } /* 浮動的高度，可以調整 */
+      100% { transform: translateY(0px); }
+    }
+
     /* 唱片容器樣式 */
     .disk-container {
       width: 200px;
       height: 200px;
       margin: 0 auto;
       position: relative;
+      /* 套用浮動動畫 */
+      animation: float 3s ease-in-out infinite;
     }
     /* 唱片樣式 - 圖片標籤 */
     .disk-image {
