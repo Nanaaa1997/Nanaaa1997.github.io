@@ -1,679 +1,294 @@
 <!DOCTYPE html>
-
 <html lang="zh">
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Nana ❤️ Johnny 的婚禮邀請函</title>
-
-  <!-- 引入 Tailwind CSS CDN，用於快速排版與設計 -->
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- 引入 Google Fonts 的 Taichung font，也就是您說的娃娃體 -->
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Taichung:wght@400;700&display=swap" rel="stylesheet">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap" rel="stylesheet">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-
-  <style>
-
-    /* 設定全域字體為 Taichung */
-
-    body {
-
-      font-family: 'LXGW WenKai TC ', sans-serif;
-
-    }
-
-     /* 針對特定的標題應用 "Grey Qo" 字體 */
-
-    #Groom-title, #Bride-title, #Welcome-title{
-
-     font-family: 'Grey Qo', cursive;
-
-  }
-
-    /* 針對特定的標題應用 "Tangerine" 字體 */
-
-    #SaveTheDateText {
-
-     font-family: 'Grey Qo', cursive;
-
-     font-size: 1.25rem; /* 你可以調整這個數字來改變字體大小 */
-
-     font-weight: normal; /* 如果 'Tangerine' 字體沒有粗體，可以將此設定為 normal */
-
-
-
-    /* 唱片旋轉動畫 */
-
-    @keyframes spin {
-
-      from { transform: rotate(0deg); }
-
-      to { transform: rotate(360deg); }
-
-    }
-
-
-
-    /* 唱片容器樣式 */
-
-    .disk-container {
-
-      width: 200px;
-
-      height: 200px;
-
-      margin: 0 auto; /* 居中 */
-
-      position: relative;
-
-    }
-
-
-
-    /* 唱片樣式 - 圖片標籤 */
-
-    .disk-image {
-
-      width: 100%;
-
-      height: 100%;
-
-      border-radius: 50%;
-
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-      transform-origin: center center;
-
-      animation-play-state: paused;
-
-      object-fit: cover; /* 關鍵：確保圖片完美填滿容器 */
-
-      cursor: pointer; /* 新增：讓滑鼠游標變為點擊圖示 */
-
-    }
-
-
-
-    /* 播放時才啟動旋轉動畫 */
-
-    .disk-image.is-playing {
-
-      animation: spin 6s linear infinite;
-
-      animation-play-state: running;
-
-    }
-
-   
-
-    /* 點擊進入頁面疊層樣式 */
-
-    #overlay {
-
-      position: fixed;
-
-      top: 0;
-
-      left: 0;
-
-      width: 100%;
-
-      height: 100%;
-
-      background-color: #F4D7D7;
-
-      display: flex;
-
-      justify-content: center;
-
-      align-items: center;
-
-      flex-direction: column;
-
-      text-align: center;
-
-      color: #374151;
-
-      font-size: 1.5rem;
-
-      font-weight: bold;
-
-      z-index: 1000;
-
-      transition: opacity 0.5s ease-in-out;
-
-    }
-
-
-
-    #overlay.fade-out {
-
-      opacity: 0;
-
-      pointer-events: none;
-
-    }
-
-  </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nana ❤️ Johnny 的婚禮邀請函</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=LXGW+WenKai+TC&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* 設定全域字體為 LXGW WenKai TC */
+    body {
+      font-family: 'LXGW WenKai TC', sans-serif;
+    }
+    /* 針對特定的標題應用 "Grey Qo" 字體 */
+    #Groom-title, #Bride-title, #Welcome-title, #SaveTheDateText {
+      font-family: 'Grey Qo', cursive;
+    }
+    #SaveTheDateText {
+      font-size: 1.25rem;
+      font-weight: normal;
+    }
+
+    /* 唱片旋轉動畫 */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    /* 唱片容器樣式 */
+    .disk-container {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    /* 唱片樣式 - 圖片標籤 */
+    .disk-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transform-origin: center center;
+      animation-play-state: paused;
+      object-fit: cover;
+      cursor: pointer;
+    }
+    /* 播放時才啟動旋轉動畫 */
+    .disk-image.is-playing {
+      animation: spin 6s linear infinite;
+      animation-play-state: running;
+    }
+    /* 點擊進入頁面疊層樣式 */
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #F4D7D7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: #374151;
+      font-size: 1.5rem;
+      font-weight: bold;
+      z-index: 1000;
+      transition: opacity 0.5s ease-in-out;
+    }
+    #overlay.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
 </head>
-
 <body class="bg-stone-100 min-h-screen flex flex-col items-center">
 
-
-
-  <!-- 點擊進入疊層 -->
-
-  <div id="overlay">
-
-    <p>吳蔡之囍</p>
-
-    <button id="enterBtn" class="mt-4 bg-white text-pink-500 px-6 py-3 rounded-full shadow-lg font-semibold hover:bg-gray-100 transition duration-300">
-
-      點此進入
-
-    </button>
-
-  </div>
-
-
-
-  <!-- 主要容器，限制最大寬度並居中，確保在任何螢幕上都美觀 -->
-
-  <main class="w-full max-w-lg mx-auto py-10 px-6" >
-
-
-
-    <!-- 封面區塊 -->
-
-    <section class="relative w-full h-96 overflow-hidden">
-
-      <!-- 封面圖片 -->
-
-      <img src="https://placehold.co/800x600/E8D2E7/ffffff?text=Nana+%26+Johnny"
-
-           alt="封面照片" class="absolute inset-0 w-full h-full object-cover">
-
-     
-
-      <!-- 遮罩層，讓文字更清晰 -->
-
-      <div class="absolute inset-0 bg-black opacity-30"></div>
-
-     
-
-      <!-- 封面文字內容 -->
-
-      <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center">
-
-        <h1 class="text-4xl font-bold mb-2 drop-shadow-md">Nana & Johnny</h1>
-
-        <p class="text-lg mb-4 drop-shadow-md">We're Married！</p>
-
-        <div id="SaveTheDateText" class="text-white text-lg font-semibold drop-shadow-md">
-
-          Save The Date
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- 1. 旋轉照片與音樂播放 -->
-
-    <section class="mt-12 text-center">
-
-      <h2 class="text-2xl font-bold text-pink-600 mb-4">我們的回憶</h2>
-
-      <div class="disk-container">
-
-        <!-- 這是旋轉照片的容器 -->
-
-        <img id="spinningDisk" src="去背唱片.png" alt="唱片圖片" class="disk-image">
-
-      </div>
-
-      <div class="flex justify-center mt-4">
-
-        <!-- 使用 SVG 取代圖片，可直接用 CSS 改變顏色和大小 -->
-
-        <img src="Love wins all.png" alt="Love wins all" class="w-auto h-20">
-
-       
-
-      </div>
-
-      <!-- 隱藏的音訊播放器 -->
-
-      <audio id="bgm" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/raw/refs/heads/main/%E4%BD%A0%E7%9A%84.mp3" loop></audio>
-
-    </section>
-
-
-
-    <!-- 2. 兩張照片並排 -->
-
-    <section class="mt-12 text-center">
-
- 
-
-      <div class="grid grid-cols-2 gap-4">
-
-        <img src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/blob/main/5F6A5821.jpg?raw=true" alt="照片1" class="w-full h-auto rounded-xl">
-
-        <img src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/blob/main/5F6A5735%20(3).jpg?raw=true" alt="照片2" class="w-full h-auto rounded-xl">
-
-      </div>
-
-    </section>
-
-
-
-    <!-- 3. 長形文字框 (Welcome To Our Wedding) -->
-
-    <section class="mt-12 text-center">
-
-      <h2 id="Welcome-title" class="text-4xl font-bold text-pink-600 mb-4">Welcome to Our Wedding</h2>
-
-      <div class="inline-blox text-gray-700 text-center space-y-4">
-
-       <p>
-
-          浪漫的不只有鮮花和夕陽<br>
-
-          是細水長流<br>
-
-          是來日方長。
-
-        </p>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- 4. 左圖 + 右邊文字框 -->
-
-    <section class="mt-12">
-
-      <h2 id="Groom-title" class="text-4xl font-bold text-pink-600 mb-4 text-center">Groom</h2>
-
-      <div class="flex flex-col md:flex-row items-center gap-6">
-
-        <div class="flex-1 w-full md:w-1/2">
-
-          <!-- 圖片網址已更換為預留圖，請自行替換 -->
-
-          <img src="Johnny 獨照.jpg" alt="旅行照片" class="rounded-xl w-full h-auto">
-
-        </div>
-
-        <div class="inline-blox flex-1 w-full md:w-1/2 text-gray-700 text-center space-y-4">
-
-          <p>
-
-            有些人<br>
-
-            一旦遇見<br>
-
-            便一眼萬年。
-
-          </p>
-
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- 5. 左邊文字框 + 右圖 -->
-
-    <section class="mt-12">
-
-      <h2 id="Bride-title" class="text-4xl font-bold text-pink-600 mb-4 text-center">Bride</h2>
-
-      <div class="flex flex-col md:flex-row-reverse items-center gap-6">
-
-        <div class="flex-1 w-full md:w-1/2">
-
-          <img src="Nana 獨照.jpg" alt="日常照片" class="rounded-xl w-full h-auto">
-
-        </div>
-
-        <div class="inline-blox flex-1 w-full md:w-1/2 text-gray-700 text-center space-y-4">
-
-          <p>
-
-            上一秒這裡還是傾盆大雨<br>
-
-            下一秒我的心就因你晴空萬里。
-
-         
-
-          </p>
-
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- 6. 直式照片 -->
-
-    <section class="mt-12 text-center">
-
-
-
-        <img src="合照1.jpg" alt="照片1" class="w-full h-auto rounded-xl">
-
-   
-
-    </section>
-
-
-
-    <!-- 7. 長形文字框 (感謝詞) -->
-
-    <section class="mt-12 text-center">
-
- 
-
-      <div class="inlin-block text-gray-700 text-center space-y-4">
-
-        <p>
-
-          如今<br>
-
-          偕同最疼愛我們的父母<br>
-
-          誠摯邀請與我們一起走過許多歲月<br>
-
-          最重要的親朋好友<br>
-
-          一同分享愛與喜悅。
-
-        </p>
-
-
-
-      </div>
-
-    </section>
-
-
-
-    <!-- 8. 婚禮資訊區塊 -->
-
-    <section class="mt-12 text-center">
-
-      <h2 class="text-2xl font-bold text-pink-600 mb-4">佳期已定 恭候光臨</h2>
-
-      <div class="text-gray-700 space-y-2">
-
-        <p>⏰ 迎賓 11:30 am | 入席 12:00 pm</p>
-
-        <p>📍 台中雅園新潮婚宴會館</p>
-
-        <img src="月曆.png"alt="婚宴日期照片" class="mt-4 mb-4 w-full max-w-sm mx-auto">
-
-        <a href="https://maps.app.goo.gl/uAR58wMXDC93py5dA" target="_blank" class="inline-flex items-center text-pink-600 font-semibold underline hover:no-underline">
-
-          查看地圖與導航
-
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-6-4h4m0 0l-4-4m4 4l-4 4"></path>
-
-          </svg>
-
-        </a>
-
-      </div>
-
-    </section>
-
-   <!-- 9. 婚禮資訊區塊 -->
-
-    <section class="mt-12 mb-12 text-center">
-
-      <h2 class="text-4xl font-bold text-pink-600 mb-4">新人碎碎念</h2>
-
-      <p class="text-gray-700">
-
-       <div class="inline-block text-left">
-
-         1.如果你因繁忙的工作無法到達儀式現場，沒關係我們已經收到祝福囉~<br>
-
-
-
-         2.如果你有時間，請準備好你的好心情和好胃口，開開心心的來赴約吧~<br>
-
-
-
-         3.婚禮有專業攝影，歡迎大家積極與我們合影紀錄呦~<br>
-
-
-
-         4.婚禮忙碌，若我們招待不周，還請多多包涵~
-
-       </div>
-
-     
-
-      <!-- 請將這裡的網址替換成你的 Google 表單連結 -->
-
-      <a href="https://forms.gle/mVNUhWb3tpnUzP3b7" target="_blank" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300">
-
-        點此前往填寫
-
-      </a>
-
-    </section>
-
-
-
-    <!-- 10. 倒數計時器區塊 -->
-
-    <section class="mt-12 text-center">
-
-      <h2 class="text-2xl font-bold text-pink-600 mb-4">倒數計時</h2>
-
-      <div id="countdown" class="flex justify-center items-center space-x-4 text-3xl font-bold text-gray-800">
-
-        <!-- 計時器會在這裡顯示 -->
-
-      </div>
-
-      <p class="mt-4 text-gray-600">
-
-        2025 年 12 月 20 日
-
-      </p>
-
-    </section>
-
-
-
-    <!-- 底部版權宣告 -->
-
-    <footer class="text-center text-gray-500 text-sm py-4">
-
-      &copy; 2025 Nana & Johnny. All rights reserved.
-
-    </footer>
-
-
-
-  </main>
-
-
-
-  <script>
-
-    // JavaScript 實現倒數計時器
-
-    const countdown = () => {
-
-      // 設定婚禮日期（年份, 月份-1, 日期, 小時, 分鐘, 秒）
-
-      const weddingDate = new Date("2025-12-20T12:00:00").getTime();
-
-      const now = new Date().getTime();
-
-      const difference = weddingDate - now;
-
-
-
-      // 計算天、小時、分鐘、秒
-
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-
-
-      // 顯示在網頁上
-
-      document.getElementById("countdown").innerHTML =
-
-        `<div><span class="text-4xl">${days}</span><br>天</div>` +
-
-        `<div><span class="text-4xl">${hours}</span><br>小時</div>` +
-
-        `<div><span class="text-4xl">${minutes}</span><br>分鐘</div>` +
-
-        `<div><span class="text-4xl">${seconds}</span><br>秒</div>`;
-
-
-
-      // 如果時間到了，顯示訊息
-
-      if (difference < 0) {
-
-        clearInterval(x);
-
-        document.getElementById("countdown").innerHTML = "我們結婚了！";
-
-      }
-
-    }
-
-
-
-    // 每秒更新一次計時器
-
-    setInterval(countdown, 1000);
-
-
-
-    // 音樂播放控制
-
-    const bgm = document.getElementById('bgm');
-
-    const spinningDisk = document.getElementById('spinningDisk');
-
-    const enterBtn = document.getElementById('enterBtn');
-
-    const overlay = document.getElementById('overlay');
-
-   
-
-    // 點擊進入按鈕的事件監聽器
-
-    enterBtn.addEventListener('click', () => {
-
-      // 點擊後播放音樂並移除疊層
-
-      bgm.play().then(() => {
-
-        overlay.classList.add('fade-out');
-
-        spinningDisk.classList.add('is-playing');
-
-      }).catch(error => {
-
-        console.error("音樂播放失敗: ", error);
-
-        overlay.classList.add('fade-out');
-
-      });
-
-    });
-
-
-
-    // 點擊照片的事件監聽器，用來播放/暫停音樂
-
-    spinningDisk.addEventListener('click', () => {
-
-        if (bgm.paused) {
-
-            bgm.play();
-
-            spinningDisk.classList.add('is-playing');
-
-        } else {
-
-            bgm.pause();
-
-            spinningDisk.classList.remove('is-playing');
-
-        }
-
-    });
-
-
-
-    // 頁面載入時先執行一次倒數計時
-
-    window.onload = countdown;
-
-  </script>
-
+  <div id="overlay">
+    <p>吳蔡之囍</p>
+    <button id="enterBtn" class="mt-4 bg-white text-pink-500 px-6 py-3 rounded-full shadow-lg font-semibold hover:bg-gray-100 transition duration-300">
+      點此進入
+    </button>
+  </div>
+
+  <main class="w-full max-w-lg mx-auto py-10 px-6">
+    <section class="relative w-full h-96 overflow-hidden">
+      <img src="https://placehold.co/800x600/E8D2E7/ffffff?text=Nana+%26+Johnny" 
+        alt="Nana 與 Johnny 的婚紗封面照片" class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black opacity-30"></div>
+      <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center">
+        <h1 class="text-4xl font-bold mb-2 drop-shadow-md">Nana & Johnny</h1>
+        <p class="text-lg mb-4 drop-shadow-md">We're Married！</p>
+        <div id="SaveTheDateText" class="text-white text-lg font-semibold drop-shadow-md">
+          Save The Date
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12 text-center">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">我們的回憶</h2>
+      <div class="disk-container">
+        <img id="spinningDisk" src="去背唱片.png" alt="唱片圖片" class="disk-image">
+      </div>
+      <div class="flex justify-center mt-4">
+        <img src="Love wins all.png" alt="Love wins all" class="w-auto h-20">
+      </div>
+      <audio id="bgm" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/raw/refs/heads/main/%E4%BD%A0%E7%9A%84.mp3" loop></audio>
+    </section>
+
+    <section class="mt-12 text-center">
+      <div class="grid grid-cols-2 gap-4">
+        <img src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/blob/main/5F6A5821.jpg?raw=true" alt="照片1" class="w-full h-auto rounded-xl">
+        <img src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/blob/main/5F6A5735%20(3).jpg?raw=true" alt="照片2" class="w-full h-auto rounded-xl">
+      </div>
+    </section>
+
+    <section class="mt-12 text-center">
+      <h2 id="Welcome-title" class="text-4xl font-bold text-pink-600 mb-4">Welcome to Our Wedding</h2>
+      <div class="inline-blox text-gray-700 text-center space-y-4">
+       <p>
+         浪漫的不只有鮮花和夕陽<br>
+         是細水長流<br>
+         是來日方長。
+       </p>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 id="Groom-title" class="text-4xl font-bold text-pink-600 mb-4 text-center">Groom</h2>
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <div class="flex-1 w-full md:w-1/2">
+          <img src="Johnny 獨照.jpg" alt="新郎 Johnny 的獨照" class="rounded-xl w-full h-auto">
+        </div>
+        <div class="inline-blox flex-1 w-full md:w-1/2 text-gray-700 text-center space-y-4">
+          <p>
+            有些人<br>
+            一旦遇見<br>
+            便一眼萬年。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 id="Bride-title" class="text-4xl font-bold text-pink-600 mb-4 text-center">Bride</h2>
+      <div class="flex flex-col md:flex-row-reverse items-center gap-6">
+        <div class="flex-1 w-full md:w-1/2">
+          <img src="Nana 獨照.jpg" alt="新娘 Nana 的獨照" class="rounded-xl w-full h-auto">
+        </div>
+        <div class="inline-blox flex-1 w-full md:w-1/2 text-gray-700 text-center space-y-4">
+          <p>
+            上一秒這裡還是傾盆大雨<br>
+            下一秒我的心就因你晴空萬里。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12 text-center">
+      <img src="合照1.jpg" alt="新人的甜蜜合照" class="w-full h-auto rounded-xl">
+    </section>
+
+    <section class="mt-12 text-center">
+      <div class="inlin-block text-gray-700 text-center space-y-4">
+        <p>
+          如今<br>
+          偕同最疼愛我們的父母<br>
+          誠摯邀請與我們一起走過許多歲月<br>
+          最重要的親朋好友<br>
+          一同分享愛與喜悅。
+        </p>
+      </div>
+    </section>
+
+    <section class="mt-12 text-center">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">佳期已定 恭候光臨</h2>
+      <div class="text-gray-700 space-y-2">
+        <p>⏰ 迎賓 11:30 am | 入席 12:00 pm</p>
+        <p>📍 台中雅園新潮婚宴會館</p>
+        <img src="月曆.png" alt="婚宴日期照片" class="mt-4 mb-4 w-full max-w-sm mx-auto">
+        <a href="https://maps.app.goo.gl/uAR58wMXDC93py5dA" target="_blank" class="inline-flex items-center text-pink-600 font-semibold underline hover:no-underline">
+          查看地圖與導航
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-6-4h4m0 0l-4-4m4 4l-4 4"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+    <section class="mt-12 mb-12 text-center">
+      <h2 class="text-4xl font-bold text-pink-600 mb-4">新人碎碎念</h2>
+      <p class="text-gray-700">
+        <div class="inline-block text-left">
+          1.如果你因繁忙的工作無法到達儀式現場，沒關係我們已經收到祝福囉~<br>
+          2.如果你有時間，請準備好你的好心情和好胃口，開開心心的來赴約吧~<br>
+          3.婚禮有專業攝影，歡迎大家積極與我們合影紀錄呦~<br>
+          4.婚禮忙碌，若我們招待不周，還請多多包涵~
+        </div>
+      </p>
+      <a href="https://forms.gle/mVNUhWb3tpnUzP3b7" target="_blank" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300">
+        點此前往填寫
+      </a>
+    </section>
+
+    <section class="mt-12 text-center">
+      <h2 class="text-2xl font-bold text-pink-600 mb-4">倒數計時</h2>
+      <div id="countdown" class="flex justify-center items-center space-x-4 text-3xl font-bold text-gray-800">
+        </div>
+      <p class="mt-4 text-gray-600">
+        2025 年 12 月 20 日
+      </p>
+    </section>
+
+    <footer class="text-center text-gray-500 text-sm py-4">
+      © 2025 Nana & Johnny. All rights reserved.
+    </footer>
+
+  </main>
+
+  <script>
+    // JavaScript 實現倒數計時器
+    const countdown = () => {
+      const weddingDate = new Date("2025-12-20T12:00:00").getTime();
+      const now = new Date().getTime();
+      const difference = weddingDate - now;
+
+      // 計算天、小時、分鐘、秒
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      // 顯示在網頁上
+      document.getElementById("countdown").innerHTML = 
+        `<div><span class="text-4xl">${days}</span><br>天</div>` + 
+        `<div><span class="text-4xl">${hours}</span><br>小時</div>` + 
+        `<div><span class="text-4xl">${minutes}</span><br>分鐘</div>` + 
+        `<div><span class="text-4xl">${seconds}</span><br>秒</div>`;
+
+      // 如果時間到了，顯示訊息
+      if (difference < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "我們結婚了！";
+      }
+    }
+    // 每秒更新一次計時器
+    setInterval(countdown, 1000);
+
+    // 音樂播放控制
+    const bgm = document.getElementById('bgm');
+    const spinningDisk = document.getElementById('spinningDisk');
+    const enterBtn = document.getElementById('enterBtn');
+    const overlay = document.getElementById('overlay');
+    
+    // 點擊進入按鈕的事件監聽器
+    enterBtn.addEventListener('click', () => {
+      // 點擊後嘗試播放音樂
+      const playPromise = bgm.play();
+      // 無論播放是否成功，都繼續頁面轉換和動畫
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          // 音樂成功播放，隱藏疊層並開始動畫
+          overlay.classList.add('fade-out');
+          spinningDisk.classList.add('is-playing');
+        }).catch(error => {
+          // 音樂播放失敗，但仍隱藏疊層並開始動畫
+          console.error("音樂播放失敗，但仍繼續頁面轉換。", error);
+          overlay.classList.add('fade-out');
+          spinningDisk.classList.add('is-playing');
+        });
+      } else {
+        // 舊版瀏覽器或沒有 Promise，直接執行
+        overlay.classList.add('fade-out');
+        spinningDisk.classList.add('is-playing');
+      }
+    });
+
+    // 點擊唱片時播放/暫停音樂
+    spinningDisk.addEventListener('click', () => {
+      if (bgm.paused) {
+        bgm.play();
+        spinningDisk.classList.add('is-playing');
+      } else {
+        bgm.pause();
+        spinningDisk.classList.remove('is-playing');
+      }
+    });
+
+    // 頁面載入時先執行一次倒數計時
+    window.onload = countdown;
+  </script>
 </body>
-
 </html>
