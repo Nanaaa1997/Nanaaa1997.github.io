@@ -16,10 +16,18 @@
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css" />
-    <link rel="preload" href="椅子手手.png" as="image">
-    <link rel="preload" href="去背唱片.png" as="image">
+    <link rel="preload" href="./img/landingImage.jpeg" as="image">
+    <link rel="preload" href="./img/hand.png" as="image">
+    <link rel="preload" href="./img/disk.png" as="image">
     <link rel="preload" href="./img/johnny.jpeg" as="image">
     <link rel="preload" href="./img/nana.jpeg" as="image">
+    <link rel="preload" href="./img/image_1.jpeg" as="image">
+    <link rel="preload" href="./img/image_2.jpeg" as="image">
+    <link rel="preload" href="./img/image_3.jpeg" as="image">
+    <link rel="preload" href="./img/image_4.jpeg" as="image">
+    <link rel="preload" href="./img/image_5.jpeg" as="image">
+    <link rel="preload" href="./img/image_6.jpeg" as="image">
+    <link rel="preload" href="./img/calendar.png" as="image">
 </head>
 
 <body>
@@ -36,7 +44,7 @@
 
             <main v-else class="w-full max-w-lg mx-auto py-10 px-6">
                 <section class="relative w-full h-96 overflow-hidden">
-                    <img src="椅子手手.png" alt="Nana 與 Johnny 的婚紗封面照片"
+                    <img src="./img/hand.png" alt="Nana 與 Johnny 的婚紗封面照片"
                         class="absolute inset-0 w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gray-100 opacity-10"></div>
                     <div class="absolute inset-0 flex flex-col justify-center text-red-700 text-center pt-52">
@@ -51,7 +59,7 @@
                         <span class="text-red-700 text-3xl font-light">|</span>
                     </div>
                     <div class="disk-container">
-                        <img ref="spinningDisk" id="spinningDisk" src="去背唱片.png" alt="唱片圖片" class="disk-image"
+                        <img ref="spinningDisk" id="spinningDisk" src="./img/disk.png" alt="唱片圖片" class="disk-image"
                             :class="{'is-playing':isBgmPlaying}" @click="onDiskClick">
                     </div>
                     <div class="relative mt-4">
@@ -89,7 +97,7 @@
                     <h2 id="Groom-title" class="text-4xl font-bold text-red-700 mb-4 text-center">Groom</h2>
                     <div class="flex flex-col md:flex-row items-center gap-6">
                         <div class="flex-1 w-full md:w-1/2">
-                            <img loading="lazy" loading="lazy" src="Johnny 獨照.jpg" alt="新郎 Johnny 的獨照" class="rounded-xl w-full h-auto">
+                            <img loading="lazy" loading="lazy" src="./img/johnny.jpeg" alt="新郎 Johnny 的獨照" class="rounded-xl w-full h-auto">
                         </div>
                         <div
                             class="inline-block font-iansui flex-1 w-full md:w-1/2 text-gray-700 text-left space-y-4">
@@ -107,7 +115,7 @@
                     <h2 id="Bride-title" class="text-4xl font-bold text-red-700 mb-4 text-center">Bride</h2>
                     <div class="flex flex-col md:flex-row-reverse items-center gap-6">
                         <div class="flex-1 w-full md:w-1/2">
-                            <img loading="lazy" src="Nana 獨照.jpg" alt="新娘 Nana 的獨照" class="rounded-xl w-full h-auto">
+                            <img loading="lazy" src="./img/nana.jpeg" alt="新娘 Nana 的獨照" class="rounded-xl w-full h-auto">
                         </div>
                         <div
                             class="inline-block font-iansui flex-1 w-full md:w-1/2 text-gray-700 text-right space-y-4">
@@ -164,7 +172,7 @@
                         <p> 2025 年 11 月 29 日 (六) </p>
                         <p>⏰ 迎賓 11:30 am | 入席 12:00 pm</p>
                         <p>📍 台中雅園新潮婚宴會館</p>
-                        <img loading="lazy" src="月曆.png" alt="婚宴日期照片" class="mt-4 mb-4 w-full max-w-sm mx-auto">
+                        <img loading="lazy" src="./img/calendar.png" alt="婚宴日期照片" class="mt-4 mb-4 w-full max-w-sm mx-auto">
                         <a href="https://maps.app.goo.gl/uAR58wMXDC93py5dA" target="_blank"
                             class="inline-flex items-center text-red-700 font-semibold underline hover:no-underline">
                             查看地圖與導航
