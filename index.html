@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nana ❤️ Johnny 的婚禮邀請函</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -33,198 +33,198 @@
                     點此進入
                 </button>
             </div>
-        </Transition>
 
-        <main v-else class="w-full max-w-lg mx-auto py-10 px-6">
-            <section class="relative w-full h-96 overflow-hidden">
-                <img src="椅子手手.png" alt="Nana 與 Johnny 的婚紗封面照片"
-                    class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gray-100 opacity-10"></div>
-                <div class="absolute inset-0 flex flex-col justify-center text-red-700 text-center pt-52">
-                    <p id="We-are-Married-text" class="text-6xl mb-4 font-bold drop-shadow-md">We're Married</p>
-                </div>
-            </section>
-
-            <section class="mt-2 text-right">
-                <div class="w-1/5 h-1 bg-red-700 opacity-50 rounded-full mb-4 ml-auto"></div>
-                <h2 id="SaveTheDateText" class="text-4xl font-bold text-red-700 mb-6">Save The Date</h2>
-                <div class="my-6">
-                    <span class="text-red-700 text-3xl font-light">|</span>
-                </div>
-                <div class="disk-container">
-                    <img ref="spinningDisk" id="spinningDisk" src="去背唱片.png" alt="唱片圖片" class="disk-image"
-                        :class="{'is-playing':isBgmPlaying}" @click="onDiskClick">
-                </div>
-                <div class="relative mt-4">
-                    <div
-                        class="absolute -bottom-2 left-0 right-0 bg-pink-200 opacity-50 rounded-md -translate-y-1 z-0">
+            <main v-else class="w-full max-w-lg mx-auto py-10 px-6">
+                <section class="relative w-full h-96 overflow-hidden">
+                    <img src="椅子手手.png" alt="Nana 與 Johnny 的婚紗封面照片"
+                        class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gray-100 opacity-10"></div>
+                    <div class="absolute inset-0 flex flex-col justify-center text-red-700 text-center pt-52">
+                        <p id="We-are-Married-text" class="text-6xl mb-4 font-bold drop-shadow-md">We're Married</p>
                     </div>
-                    <div class="relative flex justify-start text-red-700 text-6xl font-iansui z-10">
-                        囍
+                </section>
+
+                <section class="mt-2 text-right">
+                    <div class="w-1/5 h-1 bg-red-700 opacity-50 rounded-full mb-4 ml-auto"></div>
+                    <h2 id="SaveTheDateText" class="text-4xl font-bold text-red-700 mb-6">Save The Date</h2>
+                    <div class="my-6">
+                        <span class="text-red-700 text-3xl font-light">|</span>
                     </div>
-                </div>
-                <audio id="bgm" src="你的.mp3" loop></audio>
-            </section>
-
-            <section class="mt-12 text-center">
-                <div class="grid grid-cols-2 gap-4">
-                    <img loading="lazy" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/blob/main/5F6A5821.jpg?raw=true"
-                        alt="照片1" class="w-full h-auto rounded-xl">
-                    <img loading="lazy" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/blob/main/5F6A5735%20(3).jpg?raw=true"
-                        alt="照片2" class="w-full h-auto rounded-xl">
-                </div>
-            </section>
-
-            <section class="mt-12 text-center">
-                <h2 id="Welcome-title" class="text-4xl font-bold text-red-700 mb-4">Welcome to Our Wedding</h2>
-                <div class="inline-block font-iansui text-gray-700 text-center space-y-4">
-                    <p>
-                        浪漫的不只有鮮花和夕陽<br>
-                        是細水長流<br>
-                        是來日方長。
-                    </p>
-                </div>
-            </section>
-
-            <section class="mt-12">
-                <h2 id="Groom-title" class="text-4xl font-bold text-red-700 mb-4 text-center">Groom</h2>
-                <div class="flex flex-col md:flex-row items-center gap-6">
-                    <div class="flex-1 w-full md:w-1/2">
-                        <img loading="lazy" loading="lazy" src="Johnny 獨照.jpg" alt="新郎 Johnny 的獨照" class="rounded-xl w-full h-auto">
+                    <div class="disk-container">
+                        <img ref="spinningDisk" id="spinningDisk" src="去背唱片.png" alt="唱片圖片" class="disk-image"
+                            :class="{'is-playing':isBgmPlaying}" @click="onDiskClick">
                     </div>
-                    <div
-                        class="inline-block font-iansui flex-1 w-full md:w-1/2 text-gray-700 text-left space-y-4">
+                    <div class="relative mt-4">
+                        <div
+                            class="absolute -bottom-2 left-0 right-0 bg-pink-200 opacity-50 rounded-md -translate-y-1 z-0">
+                        </div>
+                        <div class="relative flex justify-start text-red-700 text-6xl font-iansui z-10">
+                            囍
+                        </div>
+                    </div>
+                    <audio id="bgm" src="你的.mp3" loop></audio>
+                </section>
+
+                <section class="mt-12 text-center">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img loading="lazy" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/blob/main/5F6A5821.jpg?raw=true"
+                            alt="照片1" class="w-full h-auto rounded-xl">
+                        <img loading="lazy" src="https://github.com/Nanaaa1997/Nanaaa1997.github.io/blob/main/5F6A5735%20(3).jpg?raw=true"
+                            alt="照片2" class="w-full h-auto rounded-xl">
+                    </div>
+                </section>
+
+                <section class="mt-12 text-center">
+                    <h2 id="Welcome-title" class="text-4xl font-bold text-red-700 mb-4">Welcome to Our Wedding</h2>
+                    <div class="inline-block font-iansui text-gray-700 text-center space-y-4">
                         <p>
-                            /<br>
-                            有些人<br>
-                            一旦遇見<br>
-                            便一眼萬年。
+                            浪漫的不只有鮮花和夕陽<br>
+                            是細水長流<br>
+                            是來日方長。
                         </p>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section class="mt-12">
-                <h2 id="Bride-title" class="text-4xl font-bold text-red-700 mb-4 text-center">Bride</h2>
-                <div class="flex flex-col md:flex-row-reverse items-center gap-6">
-                    <div class="flex-1 w-full md:w-1/2">
-                        <img loading="lazy" src="Nana 獨照.jpg" alt="新娘 Nana 的獨照" class="rounded-xl w-full h-auto">
+                <section class="mt-12">
+                    <h2 id="Groom-title" class="text-4xl font-bold text-red-700 mb-4 text-center">Groom</h2>
+                    <div class="flex flex-col md:flex-row items-center gap-6">
+                        <div class="flex-1 w-full md:w-1/2">
+                            <img loading="lazy" loading="lazy" src="Johnny 獨照.jpg" alt="新郎 Johnny 的獨照" class="rounded-xl w-full h-auto">
+                        </div>
+                        <div
+                            class="inline-block font-iansui flex-1 w-full md:w-1/2 text-gray-700 text-left space-y-4">
+                            <p>
+                                /<br>
+                                有些人<br>
+                                一旦遇見<br>
+                                便一眼萬年。
+                            </p>
+                        </div>
                     </div>
-                    <div
-                        class="inline-block font-iansui flex-1 w-full md:w-1/2 text-gray-700 text-right space-y-4">
+                </section>
+
+                <section class="mt-12">
+                    <h2 id="Bride-title" class="text-4xl font-bold text-red-700 mb-4 text-center">Bride</h2>
+                    <div class="flex flex-col md:flex-row-reverse items-center gap-6">
+                        <div class="flex-1 w-full md:w-1/2">
+                            <img loading="lazy" src="Nana 獨照.jpg" alt="新娘 Nana 的獨照" class="rounded-xl w-full h-auto">
+                        </div>
+                        <div
+                            class="inline-block font-iansui flex-1 w-full md:w-1/2 text-gray-700 text-right space-y-4">
+                            <p>
+                                /<br>
+                                上一秒這裡還是傾盆大雨<br>
+                                下一秒心就因你晴空萬里。
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <div class="flex flex-row justify-center items-center mt-12 mb-12 space-x-8">
+                    <div class="w-1/2">
+                        <img loading="lazy" src="合照7.jpg" alt="第一張照片描述" class="w-full h-auto object-cover rounded-md shadow-lg">
+                    </div>
+                    <div class="w-1/2">
+                        <img loading="lazy" src="合照8.jpg" alt="第二張照片描述" class="w-full h-auto object-cover rounded-md shadow-lg">
+                    </div>
+                </div>
+                <section class="mt-12 text-center">
+                    <img loading="lazy" src="合照1.jpg" alt="新人的甜蜜合照" class="w-full h-auto rounded-xl">
+                </section>
+
+                <section class="mt-12 text-center">
+                    <div class="inline-block font-iansui text-gray-700 text-center space-y-4">
                         <p>
-                            /<br>
-                            上一秒這裡還是傾盆大雨<br>
-                            下一秒心就因你晴空萬里。
+                            如今<br>
+                            偕同最疼愛我們的父母<br>
+                            誠摯邀請與我們一起走過許多歲月<br>
+                            最重要的親朋好友<br>
+                            一同分享愛與喜悅。
                         </p>
                     </div>
-                </div>
-            </section>
-            <div class="flex flex-row justify-center items-center mt-12 mb-12 space-x-8">
-                <div class="w-1/2">
-                    <img loading="lazy" src="合照7.jpg" alt="第一張照片描述" class="w-full h-auto object-cover rounded-md shadow-lg">
-                </div>
-                <div class="w-1/2">
-                    <img loading="lazy" src="合照8.jpg" alt="第二張照片描述" class="w-full h-auto object-cover rounded-md shadow-lg">
-                </div>
-            </div>
-            <section class="mt-12 text-center">
-                <img loading="lazy" src="合照1.jpg" alt="新人的甜蜜合照" class="w-full h-auto rounded-xl">
-            </section>
+                    <div class="flex flex-row justify-center items-center mt-8 space-x-12">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold border-b-2 border-red-700 pb-1">佳叡</h3>
+                            <p class="mt-2 text-gray-600">男方主婚人</p>
+                            <p class="mt-1 text-gray-600">吳崇榮 . 陳美惠</p>
+                        </div>
+                        <div class="flex justify-center items-center">
+                            <i class="fa-regular fa-heart text-red-700 text-lg animate-heartbeat"></i>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold border-b-2 border-red-700 pb-1">雅典</h3>
+                            <p class="mt-2 text-gray-600">女方主婚人</p>
+                            <p class="mt-1 text-gray-600">蔡金溪 . 楊琇清</p>
+                        </div>
+                    </div>
+                </section>
 
-            <section class="mt-12 text-center">
-                <div class="inline-block font-iansui text-gray-700 text-center space-y-4">
-                    <p>
-                        如今<br>
-                        偕同最疼愛我們的父母<br>
-                        誠摯邀請與我們一起走過許多歲月<br>
-                        最重要的親朋好友<br>
-                        一同分享愛與喜悅。
-                    </p>
-                </div>
-                <div class="flex flex-row justify-center items-center mt-8 space-x-12">
-                    <div class="text-center">
-                        <h3 class="text-2xl font-bold border-b-2 border-red-700 pb-1">佳叡</h3>
-                        <p class="mt-2 text-gray-600">男方主婚人</p>
-                        <p class="mt-1 text-gray-600">吳崇榮 . 陳美惠</p>
+                <section class="mt-12 text-center">
+                    <h2 class="text-2xl font-bold text-red-700 mb-4">佳期已定 恭候光臨</h2>
+                    <div class="text-gray-700 space-y-2">
+                        <p> 2025 年 11 月 29 日 (六) </p>
+                        <p>⏰ 迎賓 11:30 am | 入席 12:00 pm</p>
+                        <p>📍 台中雅園新潮婚宴會館</p>
+                        <img loading="lazy" src="月曆.png" alt="婚宴日期照片" class="mt-4 mb-4 w-full max-w-sm mx-auto">
+                        <a href="https://maps.app.goo.gl/uAR58wMXDC93py5dA" target="_blank"
+                            class="inline-flex items-center text-red-700 font-semibold underline hover:no-underline">
+                            查看地圖與導航
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-6-4h4m0 0l-4-4m4 4l-4 4">
+                                </path>
+                            </svg>
+                        </a>
                     </div>
-                    <div class="flex justify-center items-center">
-                        <i class="fa-regular fa-heart text-red-700 text-lg animate-heartbeat"></i>
+                </section>
+                <section class="mt-12 mb-12 text-center">
+                    <h2 class="text-4xl font-bold text-red-700 mb-4">新人碎碎念</h2>
+                    <div class="font-iansui text-gray-700">
+                        <div class="inline-block text-left">
+                            <p>
+                                1.如果您因繁忙的工作無法到達儀式現場，沒關係我們已經收到祝福囉~<br>
+                                2.如果您有時間，請準備好您的好心情和好胃口，開開心心的來赴約吧~<br>
+                                3.婚禮有專業攝影，歡迎大家積極與我們合影紀錄呦~<br>
+                                4.婚禮忙碌，若我們招待不周，還請多多包涵~
+                            </p>
+                        </div>
                     </div>
-                    <div class="text-center">
-                        <h3 class="text-2xl font-bold border-b-2 border-red-700 pb-1">雅典</h3>
-                        <p class="mt-2 text-gray-600">女方主婚人</p>
-                        <p class="mt-1 text-gray-600">蔡金溪 . 楊琇清</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mt-12 text-center">
-                <h2 class="text-2xl font-bold text-red-700 mb-4">佳期已定 恭候光臨</h2>
-                <div class="text-gray-700 space-y-2">
-                    <p> 2025 年 11 月 29 日 (六) </p>
-                    <p>⏰ 迎賓 11:30 am | 入席 12:00 pm</p>
-                    <p>📍 台中雅園新潮婚宴會館</p>
-                    <img loading="lazy" src="月曆.png" alt="婚宴日期照片" class="mt-4 mb-4 w-full max-w-sm mx-auto">
-                    <a href="https://maps.app.goo.gl/uAR58wMXDC93py5dA" target="_blank"
-                        class="inline-flex items-center text-red-700 font-semibold underline hover:no-underline">
-                        查看地圖與導航
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-6-4h4m0 0l-4-4m4 4l-4 4">
-                            </path>
-                        </svg>
+                    <a href="https://forms.gle/mVNUhWb3tpnUzP3b7" target="_blank"
+                        class="inline-block mt-8 bg-red-700 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300">
+                        點此前往填寫
                     </a>
+                </section>
+                <div class="flex justify-center my-8">
+                    <img loading="lazy" src="合照10.jpg" alt="圖片描述" class="w-full h-auto max-w-2xl">
                 </div>
-            </section>
-            <section class="mt-12 mb-12 text-center">
-                <h2 class="text-4xl font-bold text-red-700 mb-4">新人碎碎念</h2>
-                <div class="font-iansui text-gray-700">
-                    <div class="inline-block text-left">
-                        <p>
-                            1.如果您因繁忙的工作無法到達儀式現場，沒關係我們已經收到祝福囉~<br>
-                            2.如果您有時間，請準備好您的好心情和好胃口，開開心心的來赴約吧~<br>
-                            3.婚禮有專業攝影，歡迎大家積極與我們合影紀錄呦~<br>
-                            4.婚禮忙碌，若我們招待不周，還請多多包涵~
-                        </p>
-                    </div>
-                </div>
-                <a href="https://forms.gle/mVNUhWb3tpnUzP3b7" target="_blank"
-                    class="inline-block mt-8 bg-red-700 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300">
-                    點此前往填寫
-                </a>
-            </section>
-            <div class="flex justify-center my-8">
-                <img loading="lazy" src="合照10.jpg" alt="圖片描述" class="w-full h-auto max-w-2xl">
-            </div>
-            <p class="text-center mt-6 text-gray-600">
-                - 以愛之名 以餘生為期 -
-            </p>
-
-            <section class="mt-12 text-center">
-                <h2 class="text-2xl font-bold text-red-700 mb-4">倒數計時</h2>
-                <div id="countdown"
-                    class="flex justify-center items-center space-x-4 text-3xl font-bold text-gray-800">
-                    <template v-if="remainingTime>0">
-                        <div><span class="text-4xl">{{getRemainingDays}}</span><br>天</div>
-                        <div><span class="text-4xl">{{getRemainingHours}}</span><br>小時</div>
-                        <div><span class="text-4xl">{{getRemainingMinutes}}</span><br>分鐘</div>
-                        <div><span class="text-4xl">{{getRemainingSeconds}}</span><br>秒</div>
-                    </template>
-                    <template v-else>
-                        我們結婚了！
-                    </template>
-                </div>
-                <p class="mt-4 text-gray-600">
-                    2025 年 11 月 29 日
+                <p class="text-center mt-6 text-gray-600">
+                    - 以愛之名 以餘生為期 -
                 </p>
-            </section>
 
-            <footer class="text-center text-gray-500 text-sm py-4">
-                © 2025 Nana & Johnny. All rights reserved.
-            </footer>
-        </main>
+                <section class="mt-12 text-center">
+                    <h2 class="text-2xl font-bold text-red-700 mb-4">倒數計時</h2>
+                    <div id="countdown"
+                        class="flex justify-center items-center space-x-4 text-3xl font-bold text-gray-800">
+                        <template v-if="remainingTime>0">
+                            <div><span class="text-4xl">{{getRemainingDays}}</span><br>天</div>
+                            <div><span class="text-4xl">{{getRemainingHours}}</span><br>小時</div>
+                            <div><span class="text-4xl">{{getRemainingMinutes}}</span><br>分鐘</div>
+                            <div><span class="text-4xl">{{getRemainingSeconds}}</span><br>秒</div>
+                        </template>
+                        <template v-else>
+                            我們結婚了！
+                        </template>
+                    </div>
+                    <p class="mt-4 text-gray-600">
+                        2025 年 11 月 29 日
+                    </p>
+                </section>
+
+                <footer class="text-center text-gray-500 text-sm py-4">
+                    © 2025 Nana & Johnny. All rights reserved.
+                </footer>
+            </main>
+        </Transition>
     </div>
 </body>
 <script>
